@@ -1,44 +1,33 @@
 public class Person {
 
-    private Personality myPersonality;
-    private Name myName;
-    private String gender;
 
-    public void setMyPersonality(Personality myPersonality)
+    private char gender;
+
+    public char getGender()
     {
-        this.myPersonality = myPersonality;
+        return gender;
     }
 
-    public void setMyName(Name myName)
-    {
-        this.myName = myName;
-    }
-
-    public void setGender()
+    public void setGender(char gender)
     {
         this.gender = gender;
     }
 
-    public Personality getMyPersonality()
+    public Person()
     {
-        return myPersonality;
+        this('M');
     }
 
-    public Name getMyName()
+    public Person( char gender)
     {
-        return myName;
-    }
-
-    public String getGender()
-    {
-        return gender;
+        setGender(gender);
     }
 
     public String toString()
     {
         String person;
 
-        person = String.format(myName.toString() + "\n\n" + myPersonality.toString() + "\n\n%-20s", getGender());
+        person = String.format("\n\n%-20s%s","Gender", getGender());
 
         return person;
     }
