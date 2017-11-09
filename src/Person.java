@@ -13,22 +13,16 @@ public class Person {
         this.gender = gender;
     }
 
-    public Person()
-    {
+    public Person() {
         this('M');
     }
 
-    public Person( char gender)
+    public Person(char gender)
     {
         setGender(gender);
     }
 
-    public String toString()
-    {
-        String person;
-
-        person = String.format("\n\n%-20s%s","Gender", getGender());
-
-        return person;
+    public String toString() {
+        return String.format("\n\n%-20s%s","Gender", getGender());
     }
 }

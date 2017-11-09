@@ -1,10 +1,10 @@
 public class Name {
 
-    String[] femaleNames;
-    String[] maleNames;
-    String[] surnames;
+    private static String[] femaleNames;
+    private static String[] maleNames;
+    private static String[] surnames;
 
-    public String getName(Person myPerson)
+    public static String getName(Person myPerson)
     {
         String forename;
 
@@ -37,7 +37,7 @@ public class Name {
         return  forename + " " +  surnames[randomNumber()];
     }
 
-    public int randomNumber()
+    public static int randomNumber()
     {
         return (int)(Math.random()*19)+1;
     }
