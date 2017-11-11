@@ -11,11 +11,21 @@ public class Name {
         femaleNames = new String[] {"Chloe", "Aoife", "Sarah", "Niamh", "Emma", "Rachel",
                                     "Rebecca", "Lauren", "Megan", "Amy", "Laura", "Katie",
                                     "Emily", "Shauna", "Nicole", "Roisin", "Sophie", "Kate",
-                                    "Shannon", "Maire"};
+                                    "Shannon", "Maire", "Abigail", "Alannah", "Aoibheann",
+                                    "Caoimhe", "Cara","Rosie", "Janet", "Maria", "Michelle",
+                                    "Tina", "Claire", "Fiona", "Oonagh", "Oorla", "Ciara",
+                                    "Liz", "Eva", "Frida", "Hannah", "Tracy", "Lily", "Deirdre",
+                                    "Ava", "Amelia", "Mia", "Saoirse", "Olivia", "Ruth",
+                                    "Clodagh", "Isabella"}; //50
 
         maleNames = new String[]   {"Conor", "Sean", "Jack", "James", "Adam", "Michael", "David",
                                     "Aaron", "Daniel", "Dylan", "Shane", "Cian", "Ryan", "Luke",
-                                    "John", "Eoin", "Mark", "Patrick", "Thomas", "Liam"};
+                                    "John", "Eoin", "Mark", "Patrick", "Thomas", "Liam", "Fionn",
+                                    "Ciaran", "Adam", "Charlie", "Oisin", "Alex", "Harry", "Darragh",
+                                    "Cillian", "Jamie", "Jake", "Aaron", "Aidan", "Barry", "Matthew",
+                                    "Shane", "Ben", "Oliver", "Nathan", "Evan", "Joseph", "Zach",
+                                    "Callum", "Max", "Ethan", "Martin", "Terry", "Chris", "Bart",
+                                    "Eddie"} ;
 
         surnames = new String[]    {"Murphy", "Kelly", "Byrne", "Ryan", "O'Brien", "Walsh", "O'Sullivan",
                                     "O'Conner", "Doyle", "McCarthy", "O'Neill", "Lynch", "O'Reilly",
@@ -25,20 +35,20 @@ public class Name {
 
         if(myPerson.getGender()=='M')
         {
-            forename = maleNames[randomNumber()];
+            forename = maleNames[randomNumber(maleNames.length)];
         }
 
         else
         {
-            forename = femaleNames[randomNumber()];
+            forename = femaleNames[randomNumber(femaleNames.length)];
         }
 
 
-        return  forename + " " +  surnames[randomNumber()];
+        return  forename + " " +  surnames[randomNumber(surnames.length)];
     }
 
-    public static int randomNumber()
+    public static int randomNumber(int i)
     {
-        return (int)(Math.random()*19)+1;
+        return (int)(Math.random()*(i-1))+1;
     }
 }
