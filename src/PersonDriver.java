@@ -1,9 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class PersonDriver {
 
-    public static void main(String args[]) {
+    static ArrayList<Person> people;
+
+    public void newSystem() {
+        people = new ArrayList<Person>();
+    }
+
+
+    public static void main(String args[]) throws FileNotFoundException {
+        for (int i = 0; i < 400; i++) {
             char gender;
             boolean valid = false;
             gender = JOptionPane.showInputDialog("Please enter your gender: Male(M) or Female(F)").toUpperCase().charAt(0);
@@ -41,6 +52,39 @@ public class PersonDriver {
                 myPersonsPersonality.setSelfAwareness(randomNumber("self awareness"));
                 myPersonsPersonality.setCreativity(randomNumber("creativity"));
 
+                ObjectOutputStream myOutputStream;
+
+                try {
+                    myOutputStream = new ObjectOutputStream(new FileOutputStream("People.dat"));
+                    myOutputStream.writeObject(myPerson);
+                    myOutputStream.writeObject(myPersonsPersonality);
+                    myOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Scanner input = new Scanner(System.in);
+
+                System.out.print("Press e to display people");
+                String read = input.nextLine();
+
+                if(read.equals("e"))
+                {
+                    ObjectInputStream myInputStream;
+
+                    try {
+                        myInputStream = new ObjectInputStream( new FileInputStream("People.dat"));
+                        people = (ArrayList<Person>)myInputStream.readObject();
+                        myInputStream.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                System.out.print(people);
 
                 JTextArea myTextArea = new JTextArea();
                 Font myFont = new Font(Font.MONOSPACED, Font.PLAIN, 18);
@@ -51,6 +95,7 @@ public class PersonDriver {
                 JOptionPane.showMessageDialog(null, myTextArea);
             }
         }
+    }
 
 public static int randomNumber(String type) {
         int random = (int)(Math.random()*9)+1;

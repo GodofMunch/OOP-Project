@@ -18,7 +18,6 @@ public class PersonalityDriver {
         System.out.print(testPersonality.toString());
     }
 
-
     public static int randomNumber()
     {
         int random = (int)(Math.random()*10)+1;
