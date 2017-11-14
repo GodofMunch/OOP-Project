@@ -30,21 +30,29 @@ public class Name {
         surnames = new String[]    {"Murphy", "Kelly", "Byrne", "Ryan", "O'Brien", "Walsh", "O'Sullivan",
                                     "O'Conner", "Doyle", "McCarthy", "O'Neill", "Lynch", "O'Reilly",
                                     "Dunne", "McDonagh", "Brennan", "Fitzgerald", "Daly", "Kavanagh",
-                                    "Nolan"};
+                                    "Nolan", "McGowan", "Smith", "Gallagher", "Doherty", "Kennedy",
+                                    "Murray", "Quinn", "Moore", "McLaughlin", "O'Carroll", "Connolly",
+                                    "Daly", "O'Connell", "Wilson", "Burke", "Collins", "Campbell",
+                                    "Johnston", "Farrell", "Brown",/*40*/ "Martin", "O'Callaghan",
+                                    "Duffy", "Keating", "Boyle", "O'Mahoney", "Hogan", "Griffin",
+                                    "Curran", "McInerney"};
 
 
         if(myPerson.getGender()=='M')
         {
             forename = maleNames[randomNumber(maleNames.length)];
+            System.out.print("MaleNames size = " + maleNames.length);
         }
 
         else
         {
             forename = femaleNames[randomNumber(femaleNames.length)];
+            System.out.print("Female Names size = " + femaleNames.length);
         }
 
-
+        System.out.print("Surnames size = " + surnames.length);
         return  forename + " " +  surnames[randomNumber(surnames.length)];
+
     }
 
     public static int randomNumber(int i)

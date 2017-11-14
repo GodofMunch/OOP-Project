@@ -4,7 +4,6 @@ import java.awt.*;
 public class PersonDriver {
 
     public static void main(String args[]) {
-        for (int i = 0; i < 400; i++) {
             char gender;
             boolean valid = false;
             gender = JOptionPane.showInputDialog("Please enter your gender: Male(M) or Female(F)").toUpperCase().charAt(0);
@@ -52,7 +51,6 @@ public class PersonDriver {
                 JOptionPane.showMessageDialog(null, myTextArea);
             }
         }
-    }
 
 public static int randomNumber(String type) {
         int random = (int)(Math.random()*9)+1;
