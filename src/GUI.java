@@ -17,8 +17,8 @@ public class GUI extends JFrame{
 
     setBounds(300,200, width, height);
     Container myPane = getContentPane();
-    Color lightPink = new Color(240,210,240);
-    myPane.setBackground(lightPink);
+    Color darkGreen = new Color(0,100,0);
+    myPane.setBackground(darkGreen);
 
     createFileMenu();
     createNamesMenu();
@@ -29,6 +29,8 @@ public class GUI extends JFrame{
     myMenuBar.add(fileMenu);
     myMenuBar.add(namesMenu);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
     }
 
     private void createFileMenu() {
@@ -57,6 +59,15 @@ public class GUI extends JFrame{
 
         item = new JMenuItem("Display");
         namesMenu.add(item);
+    }
 
+    private void IntroWindow()
+    {
+
+    }
+
+    public int playerQuestion(String s) {
+        int i=0;
+        return i;
     }
 }

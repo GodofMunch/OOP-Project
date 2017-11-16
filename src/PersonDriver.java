@@ -1,122 +1,104 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class PersonDriver {
+    public static enum computerStarSign {Earth, Wind, Fire, Water}
+    public static enum playerStarSign {Earth, Wind, Fire, Water}
+    public static Personality p;
+    public static Person myPerson;
 
-    static ArrayList<Person> people;
+    public static void main(String args[]) {
 
-    public void newSystem() {
-        people = new ArrayList<Person>();
-    }
-
-
-    public static void main(String args[]) throws FileNotFoundException {
+        JTextArea ta;
         for (int i = 0; i < 400; i++) {
-            char gender;
-            boolean valid = false;
-            gender = JOptionPane.showInputDialog("Please enter your gender: Male(M) or Female(F)").toUpperCase().charAt(0);
-
-            Person myPerson = new Person(gender);
-
-            while (!valid) {
-                switch (gender) {
-                    case 'M': {
-
-                        valid = true;
-                        break;
-                    }
-
-                    case 'F': {
-                        valid = true;
-                        break;
-                    }
-
-                    default: {
-                        gender = JOptionPane.showInputDialog("Invalid! - Please enter your gender: Male(M) or Female(F)").toUpperCase().charAt(0);
-                        break;
-                    }
-                }
-
-                Personality myPersonsPersonality = new Personality();
-
-                myPersonsPersonality.setEmpathy(randomNumber("empathy"));
-                myPersonsPersonality.setHumour(randomNumber("humour"));
-                myPersonsPersonality.setIntelligence(randomNumber("intelligenge"));
-                myPersonsPersonality.setCuriosity(randomNumber("curiosity"));
-                myPersonsPersonality.setHonesty(randomNumber("honesty"));
-                myPersonsPersonality.setCourage(randomNumber("courage"));
-                myPersonsPersonality.setIntegrity(randomNumber("Integrity"));
-                myPersonsPersonality.setSelfAwareness(randomNumber("self awareness"));
-                myPersonsPersonality.setCreativity(randomNumber("creativity"));
-
-                ObjectOutputStream myOutputStream;
-
-                try {
-                    myOutputStream = new ObjectOutputStream(new FileOutputStream("People.dat"));
-                    myOutputStream.writeObject(myPerson);
-                    myOutputStream.writeObject(myPersonsPersonality);
-                    myOutputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Scanner input = new Scanner(System.in);
-
-                System.out.print("Press e to display people");
-                String read = input.nextLine();
-
-                if(read.equals("e"))
-                {
-                    ObjectInputStream myInputStream;
-
-                    try {
-                        myInputStream = new ObjectInputStream( new FileInputStream("People.dat"));
-                        people = (ArrayList<Person>)myInputStream.readObject();
-                        myInputStream.close();
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                System.out.print(people);
-
-                JTextArea myTextArea = new JTextArea();
-                Font myFont = new Font(Font.MONOSPACED, Font.PLAIN, 18);
-                myTextArea.setFont(myFont);
-                myTextArea.append(Name.getName(myPerson));
-                myTextArea.append("\n\n");
-                myTextArea.append(myPersonsPersonality.toString());
-                JOptionPane.showMessageDialog(null, myTextArea);
-            }
+            p = myPersonsPersonality();
+            myPerson = myPerson();
+            //setEnum(myPersonsPersonality);
+            ta = myTextArea(p, myPerson);
         }
     }
 
-public static int randomNumber(String type) {
-        int random = (int)(Math.random()*9)+1;
-        System.out.print("\n" + type + "\n");
-        if(random<3) {
-            random = (int) (Math.random() * 5) + 1;
-            System.out.print( "\n    random <3 = " + random);
+    private static void setEnum(Personality p) {
 
-            if(random<2){
-                random = (int) (Math.random() * 5) + 1;
-                System.out.print( "\n    random <2 = " + random);
-            }
+        if (p.getCourage() >= 7 && p.getEmpathy() <= 3 && p.getHonesty() >= 7 && p.getCuriosity() >= 7) {
+            //computerStarSign = computerStarSign.Fire;
         }
-        else if(random>8){
-            random = (int)(Math.random()*5)+6;
-            System.out.print( "\n    random >8 = " + random);
-            if(random >9 ){
-                random = (int)(Math.random()*5)+6;
-                System.out.print( "\n    random >9 = " + random);
+    }
+
+    public static int randomNumber() {
+        int random = (int) (Math.random() * 9) + 1;
+        if (random < 3) {
+            random = (int) (Math.random() * 5) + 1;
+
+            if (random < 2) {
+                random = (int) (Math.random() * 5) + 1;
+            }
+        } else if (random > 8) {
+            random = (int) (Math.random() * 5) + 6;
+            if (random > 9) {
+                random = (int) (Math.random() * 5) + 6;
             }
         }
         return random;
+    }
+
+    public static JTextArea myTextArea(Personality p, Person myPerson) {
+        JTextArea myTextArea = new JTextArea();
+        Font myFont = new Font(Font.MONOSPACED, Font.PLAIN, 18);
+        myTextArea.setFont(myFont);
+        myTextArea.append(Name.getName(myPerson));
+        myTextArea.append("\n\n");
+        myTextArea.append(p.toString());
+        JOptionPane.showMessageDialog(null, myTextArea);
+
+        return myTextArea;
+    }
+
+    public static Personality myPersonsPersonality() {
+
+        Personality myPersonsPersonality = new Personality();
+
+        myPersonsPersonality.setEmpathy(randomNumber());
+        myPersonsPersonality.setHumour(randomNumber());
+        myPersonsPersonality.setIntelligence(randomNumber());
+        myPersonsPersonality.setCuriosity(randomNumber());
+        myPersonsPersonality.setHonesty(randomNumber());
+        myPersonsPersonality.setCourage(randomNumber());
+        myPersonsPersonality.setIntegrity(randomNumber());
+        myPersonsPersonality.setSelfAwareness(randomNumber());
+        myPersonsPersonality.setCreativity(randomNumber());
+
+        return myPersonsPersonality;
+    }
+
+    public static Person myPerson() {
+
+        char gender;
+        boolean valid = false;
+
+        gender = JOptionPane.showInputDialog("Please enter your gender: Male(M) or Female(F)").toUpperCase().charAt(0);
+
+        Person myPerson = new Person(gender);
+
+        while (!valid) {
+            switch (gender) {
+                case 'M': {
+
+                    valid = true;
+                    break;
+                }
+
+                case 'F': {
+                    valid = true;
+                    break;
+                }
+
+                default: {
+                    gender = JOptionPane.showInputDialog("Invalid! - Please enter your gender: Male(M) or Female(F)").toUpperCase().charAt(0);
+                    break;
+                }
+            }
+
+        }
+        return myPerson;
     }
 }

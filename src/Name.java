@@ -4,8 +4,7 @@ public class Name {
     private static String[] maleNames;
     private static String[] surnames;
 
-    public static String getName(Person myPerson)
-    {
+    public static String getName(Person myPerson) {
         String forename;
 
         femaleNames = new String[] {"Chloe", "Aoife", "Sarah", "Niamh", "Emma", "Rachel",
@@ -40,22 +39,22 @@ public class Name {
 
         if(myPerson.getGender()=='M')
         {
-            forename = maleNames[randomNumber(maleNames.length)];
+            forename = maleNames[randomNumberName(maleNames.length)];
             System.out.print("MaleNames size = " + maleNames.length);
         }
 
         else
         {
-            forename = femaleNames[randomNumber(femaleNames.length)];
+            forename = femaleNames[randomNumberName(femaleNames.length)];
             System.out.print("Female Names size = " + femaleNames.length);
         }
 
         System.out.print("Surnames size = " + surnames.length);
-        return  forename + " " +  surnames[randomNumber(surnames.length)];
+        return  forename + " " +  surnames[randomNumberName(surnames.length)];
 
     }
 
-    public static int randomNumber(int i)
+    public static int randomNumberName(int i)
     {
         return (int)(Math.random()*(i-1))+1;
     }

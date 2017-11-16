@@ -116,8 +116,7 @@ public class Personality {
     }
 
     public Personality(int empathy, int humour, int intelligence, int curiosity, int honesty,
-                       int courage, int integrity, int selfAwareness, int creativity)
-    {
+                       int courage, int integrity, int selfAwareness, int creativity) {
         setEmpathy(empathy);
         setHumour(humour);
         setIntelligence(intelligence);
@@ -129,8 +128,7 @@ public class Personality {
         setCreativity(creativity);
     }
 
-    public String toString()
-    {
+    public String toString() {
         String personalityTraits, format = "%-20s%10d\n";
 
         personalityTraits =
