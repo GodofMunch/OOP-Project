@@ -45,6 +45,8 @@ and panel to frame.south
     myMenuBar.add(fileMenu);
     myMenuBar.add(namesMenu);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
     }
 
     private void createFileMenu() {

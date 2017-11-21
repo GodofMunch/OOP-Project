@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 public class PersonDriver {
-    public static enum computerStarSign {Earth, Wind, Fire, Water}
-    public static enum playerStarSign {Earth, Wind, Fire, Water}
+
+    public static String[] personalityType = new String[] {"Earth", "Wind", "Fire", "Water"};
     public static Personality p;
     public static Person myPerson;
 
@@ -17,11 +17,29 @@ public class PersonDriver {
         }
     }
 
-    private static void setEnum(Personality p) {
+    /*private int empathy;
+    private int humour;
+    private int intelligence;
+    private int curiosity;
+    private int honesty;
+    private int courage;
+    private int integrity;
+    private int selfAwareness;
+    private int creativity;
+    private String type;*/
 
-        if (p.getCourage() >= 7 && p.getEmpathy() <= 3 && p.getHonesty() >= 7 && p.getCuriosity() >= 7) {
-            //computerStarSign = computerStarSign.Fire;
+    private static String setEnum(Personality computer, Personality player) {
+
+
+        int i=0;
+        if (computer.getCourage() >= 7 && computer.getEmpathy() <= 3 && computer.getHonesty() >= 7 && computer.getCuriosity() >= 7){
+
+            computer.setType(personalityType[3]);
         }
+
+        //if (computer.getIntelligence() >= 7 && computer.getIntegrity() >= ;)
+
+        return personalityType[i];
     }
 
     public static int randomNumber() {
