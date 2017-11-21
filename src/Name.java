@@ -40,16 +40,16 @@ public class Name {
         if(myPerson.getGender()=='M')
         {
             forename = maleNames[randomNumberName(maleNames.length)];
-            System.out.print("MaleNames size = " + maleNames.length);
+            //System.out.print("MaleNames size = " + maleNames.length);
         }
 
         else
         {
             forename = femaleNames[randomNumberName(femaleNames.length)];
-            System.out.print("Female Names size = " + femaleNames.length);
+            //System.out.print("Female Names size = " + femaleNames.length);
         }
 
-        System.out.print("Surnames size = " + surnames.length);
+        //System.out.print("Surnames size = " + surnames.length);
         return  forename + " " +  surnames[randomNumberName(surnames.length)];
 
     }
