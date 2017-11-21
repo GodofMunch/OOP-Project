@@ -18,8 +18,6 @@ public class Personality {
     private int integrity;
     private int selfAwareness;
     private int creativity;
-    private String type;
-
 
     public int getEmpathy()
     {
@@ -64,10 +62,6 @@ public class Personality {
     public int getCreativity()
     {
         return creativity;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public void setEmpathy(int empathy)
@@ -115,17 +109,13 @@ public class Personality {
         this.creativity = creativity;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public Personality()
     {
-        this(0,0,0,0,0,0,0,0,0, "");
+        this(0,0,0,0,0,0,0,0,0);
     }
 
     public Personality(int empathy, int humour, int intelligence, int curiosity, int honesty,
-                       int courage, int integrity, int selfAwareness, int creativity, String type) {
+                       int courage, int integrity, int selfAwareness, int creativity) {
         setEmpathy(empathy);
         setHumour(humour);
         setIntelligence(intelligence);
@@ -141,11 +131,15 @@ public class Personality {
         String personalityTraits;
 
         personalityTraits =
-                String.format("%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10s\n",
+                String.format("%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n%-20s%10d\n",
                         "Empathy: ", getEmpathy(), "Humour: ", getHumour(), "Intelligence: ", getIntelligence(), "Curiosity: " ,
                         getCuriosity(), "Honesty: ", getHonesty(), "Courage: ", getCourage(), "Integrity: ", getIntegrity(),
-                        "Self Awareness: ", getSelfAwareness(), "Creativity: " , getCreativity(),"Personality Type: ", getType());
+                        "Self Awareness: ", getSelfAwareness(), "Creativity: " , getCreativity());
 
         return personalityTraits;
+    }
+
+    public void setType(String s) {
+
     }
 }

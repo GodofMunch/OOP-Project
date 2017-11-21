@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 public class PersonDriver {
 
-    public static String[] personalityType = new String[] {"Earth", "Wind", "Fire", "Water"};
+    public static String[] personalityType = new String[] {"Earth", "Wind", "Fire", "Water, Average"};
     public static Personality p;
     public static Person myPerson;
 
@@ -12,12 +12,12 @@ public class PersonDriver {
         for (int i = 0; i < 400; i++) {
             p = myPersonsPersonality();
             myPerson = myPerson();
-            //setEnum(myPersonsPersonality);
             ta = myTextArea(p, myPerson);
         }
     }
 
-    /*private int empathy;
+    /*
+    private int empathy;
     private int humour;
     private int intelligence;
     private int curiosity;
@@ -26,20 +26,31 @@ public class PersonDriver {
     private int integrity;
     private int selfAwareness;
     private int creativity;
-    private String type;*/
+    private String type;
+    */
 
-    private static String setEnum(Personality computer, Personality player) {
+    public static String setPersonalityType(Personality computer) {
+
+        int i;
 
 
-        int i=0;
-        if (computer.getCourage() >= 7 && computer.getEmpathy() <= 3 && computer.getHonesty() >= 7 && computer.getCuriosity() >= 7){
+        if (computer.getCourage() >= 6 && computer.getEmpathy() <= 3 || (computer.getHonesty() >= 6 && computer.getCuriosity() >= 6))
+            i = 2;
 
-            computer.setType(personalityType[3]);
-        }
+        else if ((computer.getIntelligence() >= 6 && computer.getIntegrity() >= 6) || (computer.getSelfAwareness() >=6 && computer.getCreativity()<=3))
+            i = 0;
 
-        //if (computer.getIntelligence() >= 7 && computer.getIntegrity() >= ;)
+        else if((computer.getHumour() >= 6 && computer.getHonesty() <=3) || (computer.getCuriosity()>=6 && computer.getEmpathy() <=3))
+            i = 3;
+
+        else if((computer.getCreativity()>=6 && computer.getCuriosity()>=6) || (computer.getHonesty()<=3 && computer.getEmpathy()>=6))
+            i = 1;
+
+        else
+            i = 4;
 
         return personalityType[i];
+
     }
 
     public static int randomNumber() {
@@ -66,6 +77,7 @@ public class PersonDriver {
         myTextArea.append(Name.getName(myPerson));
         myTextArea.append("\n\n");
         myTextArea.append(p.toString());
+        myTextArea.append("\n" + setPersonalityType(p));
         JOptionPane.showMessageDialog(null, myTextArea);
 
         return myTextArea;
@@ -115,7 +127,6 @@ public class PersonDriver {
                     break;
                 }
             }
-
         }
         return myPerson;
     }
