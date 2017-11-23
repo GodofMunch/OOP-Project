@@ -138,8 +138,4 @@ public class Personality {
 
         return personalityTraits;
     }
-
-    public void setType(String s) {
-
-    }
 }

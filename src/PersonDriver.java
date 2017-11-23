@@ -5,48 +5,40 @@ public class PersonDriver {
     public static String[] personalityType = new String[] {"Earth", "Wind", "Fire", "Water", "Average"};
     public static Personality p;
     public static Person myPerson;
-    static int totalEarth=0, totalWind=0, totalFire = 0, totalWater = 0, totalAverage=0;
 
     public static void main(String args[]) {
 
-        JTextArea ta;
-        for (int i = 0; i < 400; i++) {
             p = myPersonsPersonality();
             myPerson = myPerson();
-            ta = myTextArea(p, myPerson, i);
-        }
-
-        System.out.print("Fire : " + totalFire + "\nWater" + totalWater + "\nEarth" + totalEarth + "\nWind" + totalWind + "\nAverage" + totalAverage);
-
+            myTextArea(p, myPerson);
     }
+
     public static String setPersonalityType(Personality computer) {
 
-        int i;
+        int upperLimitCheck, bounds = 8;
 
-        /*if (computer.getCourage() >= 7 && (computer.getHonesty() >= 4 || computer.getCuriosity() >= 4)) {
-            i = 2;
-            totalFire++;
-        }
-        else if (computer.getIntelligence() >= 7 && (computer.getIntegrity() >= 4 || computer.getSelfAwareness() >=4)) {
-            totalEarth++;
-            i = 0;
-        }
-        else if(computer.getHumour() >= 6 && (computer.getCuriosity() >= 4 || computer.getHonesty()>=4)) {
-            totalWater++;
-            i = 3;
-        }
-        else if(computer.getCreativity()>= 6 && (computer.getCuriosity()>=4 || computer.getEmpathy()>=4 )) {
-            i = 1;
-            totalWind++;
+        if(computer.getCourage() >= bounds)
+            upperLimitCheck=0;
+        else if(computer.getCreativity() >= bounds)
+            upperLimitCheck=1;
+        else if(computer.getCuriosity() >= bounds)
+            upperLimitCheck=2;
+        else if(computer.getEmpathy() >= bounds)
+            upperLimitCheck=3;
+        else if(computer.getHonesty() >= bounds)
+            upperLimitCheck=0;
+        else if(computer.getHumour() >= bounds)
+            upperLimitCheck=1;
+        else if(computer.getIntegrity() >= bounds)
+            upperLimitCheck=2;
+        else if(computer.getIntelligence() >= bounds)
+            upperLimitCheck=3;
+        else if(computer.getSelfAwareness() >= bounds)
+            upperLimitCheck=0;
+        else
+            upperLimitCheck=4;
 
-        }
-        else {
-            i = 4;
-            totalAverage++;
-        }*/
-        if
-        return personalityType[i];
-
+        return personalityType[upperLimitCheck];
     }
 
     public static int randomNumber() {
@@ -66,12 +58,12 @@ public class PersonDriver {
         return random;
     }
 
-    public static JTextArea myTextArea(Personality p, Person myPerson, int i) {
+    public static JTextArea myTextArea(Personality p, Person myPerson) {
         JTextArea myTextArea = new JTextArea();
         Font myFont = new Font(Font.MONOSPACED, Font.PLAIN, 18);
         myTextArea.setFont(myFont);
         myTextArea.append(Name.getName(myPerson));
-        myTextArea.append("\n\n" + i + "\n\n");
+        myTextArea.append("\n\n");
         myTextArea.append(p.toString());
         myTextArea.append("\n" + setPersonalityType(p));
         JOptionPane.showMessageDialog(null, myTextArea);
@@ -110,12 +102,10 @@ public class PersonDriver {
                     valid = true;
                     break;
                 }
-
                 case 'F': {
                     valid = true;
                     break;
                 }
-
                 default: {
                     gender = JOptionPane.showInputDialog("Invalid! - Please enter your gender: Male(M) or Female(F)").toUpperCase().charAt(0);
                     break;
@@ -125,52 +115,3 @@ public class PersonDriver {
         return myPerson;
     }
 }
-/*
-if (computer.getCourage() >= 6 && computer.getEmpathy() <= 3 || (computer.getHonesty() >= 6 && computer.getCuriosity() >= 6)) {
-            i = 2;
-            totalFire++;
-        }
-        else if ((computer.getIntelligence() >= 6 && computer.getIntegrity() >= 6) || (computer.getSelfAwareness() >=6 && computer.getCreativity()<=3)) {
-            totalEarth++;
-            i = 0;
-        }
-        else if((computer.getHumour() >= 6 && computer.getHonesty() <=3) || (computer.getCuriosity()>=6 && computer.getEmpathy() <=3)) {
-            totalWater++;
-            i = 3;
-        }
-        else if((computer.getCreativity()>=6 && computer.getCuriosity()>=6) || (computer.getHonesty()<=3 && computer.getEmpathy()>=6)) {
-            i = 1;
-            totalWind++;
-        }
-        else {
-            i = 4;
-            totalAverage++;
-        }
- */
-        /* after 400
-        Fire : 106
-        Water44
-        Earth66
-        Wind34
-        Average150
-         */
-
-        /*after 2nd 400
-        Fire : 100
-        Water28
-        Earth80
-        Wind39
-        Average153
-         */
-    /*
-    private int empathy;
-    private int humour;
-    private int intelligence;
-    private int curiosity;
-    private int honesty;
-    private int courage;
-    private int integrity;
-    private int selfAwareness;
-    private int creativity;
-    private String type;
-    */
