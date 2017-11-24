@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Name {
 
     public static String[] femaleNames = new String[] {"Chloe", "Aoife", "Sarah", "Niamh", "Emma", "Rachel",
@@ -9,6 +11,8 @@ public class Name {
                                                         "Liz", "Eva", "Frida", "Hannah", "Tracy", "Lily", "Deirdre",
                                                         "Ava", "Amelia", "Mia", "Saoirse", "Olivia", "Ruth",
                                                         "Clodagh", "Isabella"};
+
+    public static List<String> femaleList = Arrays.asList(femaleNames);
 
     public static String[] maleNames = new String[]   {"Conor", "Sean", "Jack", "James", "Adam", "Michael", "David",
                                                         "Aaron", "Daniel", "Dylan", "Shane", "Cian", "Ryan", "Luke",

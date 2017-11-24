@@ -1,13 +1,17 @@
+import javafx.scene.control.Button;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 
 public class GUI extends JFrame{
 
     JMenu fileMenu, namesMenu;
     Container myPane;
     JButton startGame;
-    JMenuItem newGame, display, exit;
+    JMenuItem newName, display, exit, save, open;
 
     public static void main(String args[]) {
         GUI myGUI = new GUI();
@@ -20,7 +24,9 @@ public class GUI extends JFrame{
     myPane = getContentPane();
     myPane.setLayout(new BorderLayout());
     this.add(new JLabel(new ImageIcon("C:\\Users\\t00139303\\Documents\\GitHub\\OOP-Project\\Images\\Couple.jpg")), BorderLayout.CENTER);
+    this.add(new JLabel(new ImageIcon("C:\\Users\\HP\\Documents\\GitHub\\OOP-Project\\Images\\Couple.jpg")), BorderLayout.CENTER);
     setBounds(300,200, width, height);
+    setLocation (50,50);
 
 
     createFileMenu();
@@ -42,69 +48,113 @@ public class GUI extends JFrame{
     private void createFileMenu() {
         fileMenu = new JMenu("File");
 
-        JMenuItem item;
+        MenuItemHandler fileHandler = new MenuItemHandler();
 
-        item = new JMenuItem("Save");
-        fileMenu.add(item);
+        save = new JMenuItem("Save");
+        fileMenu.add(save);
+        save.addActionListener(fileHandler);
 
-        item = new JMenuItem("Open");
-        fileMenu.add(item);
+        open = new JMenuItem("Open");
+        fileMenu.add(open);
+        open.addActionListener(fileHandler);
+
 
         exit = new JMenuItem("Exit");
         fileMenu.add(exit);
+        exit.addActionListener(fileHandler);
     }
 
     private void createNamesMenu() {
 
+        MenuItemHandler namesHandler = new MenuItemHandler();
+
         namesMenu = new JMenu("Names");
 
-        newGame = new JMenuItem("New");
-        namesMenu.add(newGame);
-
+        newName = new JMenuItem("New");
+        newName.addActionListener(namesHandler);
+        namesMenu.add(newName);
         display = new JMenuItem("Display");
+        display.addActionListener(namesHandler);
         namesMenu.add(display);
     }
 
-    private class ButtonEventHandler implements ActionListener{
+    private class ButtonEventHandler implements ActionListener {
 
         public void actionPerformed(ActionEvent e)
         {
             if(e.getSource()==startGame) {
-                myPane.setVisible(false);
                 JOptionPane.showMessageDialog(null, "You have begun a new game");
             }
 
-            if(e.getSource()==fileMenu){
+        }
+    }
 
+    private class MenuItemHandler implements ActionListener {
+        public void actionPerformed(ActionEvent e)
+        {
+            if(e.getSource() == newName) {
+                newNameCall();
             }
+
             if(e.getSource() == display){
-             JTextArea names = new JTextArea();
-
-             names.append("Female Names\n\n");
-
-             for(int i = 0; i < Name.femaleNames.length; i++ ) {
-                 names.append(Name.femaleNames[i] + "\n");
-             }
-
-             names.append("\n\nMale Names\n\n");
-
-             for (int i=0; i<Name.maleNames.length;i++) {
-                 names.append(Name.maleNames[i]);
-             }
-
-             names.append("\n\nSurname\n\n");
-
-             for(int i =0; i<Name.surnames.length;i++) {
-                 names.append(Name.surnames[i]);
-             }
-             JOptionPane.showMessageDialog(null, names);
+                displayCall();
             }
 
             if(e.getSource()==exit) {
-                System.out.print("EXIT");
-                System.exit(0);
+                exitCall();
             }
         }
+    }
+
+    private void newNameCall() {
+
+    }
+
+    private void displayCall() {
+
+        JTextArea names = new JTextArea();
+        names.setSize(975,200);
+        Font myFont = new Font(Font.MONOSPACED, Font.PLAIN, 12);
+        names.setFont(myFont);
+        names.append("Female Names\n\n");
+        for(int i = 0; i < Name.femaleNames.length; i++ ) {
+            if(i==36)
+                names.append("\n");
+            if(i==(Name.femaleNames.length-1))
+                names.append(String.format("%-5s", Name.femaleNames[i] + "."));
+            else
+                names.append(String.format("%-5s", Name.femaleNames[i] + ", "));
+        }
+
+        names.append("\n\nMale Names\n\n");
+
+        for (int i=0; i<Name.maleNames.length;i++) {
+            if(i==20)
+                names.append("\n");
+            if(i==(Name.maleNames.length-1))
+                names.append(Name.maleNames[i] + ".");
+            else
+                names.append(Name.maleNames[i] + ", ");
+        }
+
+        names.append("\n\nSurname\n\n");
+
+        for(int i =0; i<Name.surnames.length;i++) {
+            if(i==16 || i==31)
+                names.append("\n");
+            if(i==(Name.surnames.length-1))
+                names.append(Name.surnames[i] + ".");
+            else
+                names.append(Name.surnames[i] + ", ");
+        }
+        JScrollPane scroller = new JScrollPane(names,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        names.setLineWrap(true);
+        JOptionPane.showMessageDialog (null, names);
+    }
+
+    private void exitCall(){
+        System.out.print("EXIT");
+        System.exit(0);
     }
 }
 
