@@ -33,18 +33,6 @@ public class Name {
                                                         "Duffy", "Keating", "Boyle", "O'Mahoney", "Hogan", "Griffin",
                                                         "Curran", "McInerney"};
 
-    public static int getFemaleNamesLength() {
-        return femaleNames.length;
-    }
-
-    public static int getMaleNamesLength() {
-        return maleNames.length;
-    }
-
-    public static int getSurNamesLength() {
-        return surnames.length;
-    }
-
     public static String getName(Person myPerson) {
         String forename;
 

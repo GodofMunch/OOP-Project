@@ -1,17 +1,12 @@
-import javafx.scene.control.Button;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+public class GUI extends JFrame implements ActionListener{
 
-public class GUI extends JFrame{
-
-    JMenu fileMenu, namesMenu;
-    Container myPane;
-    JButton startGame;
-    JMenuItem newName, display, exit, save, open;
+    public JMenu fileMenu, namesMenu;
+    private Container myPane;
+    private JMenuItem newName, display, exit, save, open, game;
 
     public static void main(String args[]) {
         GUI myGUI = new GUI();
@@ -20,90 +15,79 @@ public class GUI extends JFrame{
 
     public GUI() {
     this.setTitle("Dating Simulator 2017");
-    int width = 800, height = 650;
+    this.setVisible(true);
     myPane = getContentPane();
-    myPane.setLayout(new BorderLayout());
-    this.add(new JLabel(new ImageIcon("C:\\Users\\t00139303\\Documents\\GitHub\\OOP-Project\\Images\\Couple.jpg")), BorderLayout.CENTER);
-    this.add(new JLabel(new ImageIcon("C:\\Users\\HP\\Documents\\GitHub\\OOP-Project\\Images\\Couple.jpg")), BorderLayout.CENTER);
-    setBounds(300,200, width, height);
+    this.setLayout(new BorderLayout());
+    myPane.add(new JLabel(new ImageIcon("C:\\Users\\t00139303\\Documents\\GitHub\\OOP-Project\\Images\\Couple.jpg")), BorderLayout.CENTER);
+    myPane.add(new JLabel(new ImageIcon("C:\\Users\\HP\\Documents\\GitHub\\OOP-Project\\Images\\Couple.jpg")), BorderLayout.CENTER);
+    setBounds(300,200, 800, 650);
     setLocation (50,50);
-
 
     createFileMenu();
     createNamesMenu();
-    startGame = new JButton("New Game");
-    JPanel introPanel = new JPanel();
-    introPanel.add(startGame);
-    ButtonEventHandler newGame = new ButtonEventHandler();
-    startGame.addActionListener(newGame);
-
-    myPane.add(introPanel, BorderLayout.SOUTH);
     JMenuBar myMenuBar = new JMenuBar();
     setJMenuBar(myMenuBar);
     myMenuBar.add(fileMenu);
     myMenuBar.add(namesMenu);
+
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    private void createFileMenu() {
+    private void createFileMenu()
+    {
         fileMenu = new JMenu("File");
 
-        MenuItemHandler fileHandler = new MenuItemHandler();
+        fileMenu.add(game = new JMenuItem("New Game"));
+        game.addActionListener(this);
 
-        save = new JMenuItem("Save");
-        fileMenu.add(save);
-        save.addActionListener(fileHandler);
+        fileMenu.add(save = new JMenuItem("Save"));
+        save.addActionListener(this);
 
-        open = new JMenuItem("Open");
-        fileMenu.add(open);
-        open.addActionListener(fileHandler);
+        fileMenu.add(open = new JMenuItem("Open"));
+        open.addActionListener(this);
 
-
-        exit = new JMenuItem("Exit");
-        fileMenu.add(exit);
-        exit.addActionListener(fileHandler);
+        fileMenu.add(exit = new JMenuItem("Exit"));
+        exit.addActionListener(this);
     }
 
     private void createNamesMenu() {
 
-        MenuItemHandler namesHandler = new MenuItemHandler();
-
         namesMenu = new JMenu("Names");
 
         newName = new JMenuItem("New");
-        newName.addActionListener(namesHandler);
+        newName.addActionListener(this);
         namesMenu.add(newName);
         display = new JMenuItem("Display");
-        display.addActionListener(namesHandler);
+        display.addActionListener(this);
         namesMenu.add(display);
     }
 
-    private class ButtonEventHandler implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
 
-        public void actionPerformed(ActionEvent e)
-        {
-            if(e.getSource()==startGame) {
-                JOptionPane.showMessageDialog(null, "You have begun a new game");
-            }
+        if(e.getSource() == newName) {
+            newNameCall();
+        }
 
+        if(e.getSource() == display){
+            displayCall();
+        }
+
+        if(e.getSource()==exit) {
+            exitCall();
+        }
+
+        if(e.getSource()==game) {
+            newGameCall();
+            repaint();
         }
     }
 
-    private class MenuItemHandler implements ActionListener {
-        public void actionPerformed(ActionEvent e)
-        {
-            if(e.getSource() == newName) {
-                newNameCall();
-            }
+    private void newGameCall() {
 
-            if(e.getSource() == display){
-                displayCall();
-            }
-
-            if(e.getSource()==exit) {
-                exitCall();
-            }
-        }
+        System.out.print("New Game");
+        myPane.add(new JLabel(new ImageIcon("C:\\Users\\HP\\Documents\\GitHub\\OOP-Project\\Images\\me.jpg")), BorderLayout.CENTER);
+        getContentPane().validate();
+        getContentPane().repaint();
     }
 
     private void newNameCall() {
@@ -112,13 +96,17 @@ public class GUI extends JFrame{
 
     private void displayCall() {
 
+        Color jtaBackGround = new Color(255,182,193);
+        Color jtaForeground = new Color (8,131, 178);
         JTextArea names = new JTextArea();
+        names.setBackground(jtaBackGround);
+        names.setForeground(jtaForeground);
         names.setSize(975,200);
-        Font myFont = new Font(Font.MONOSPACED, Font.PLAIN, 12);
+        Font myFont = new Font(Font.DIALOG, Font.PLAIN, 12);
         names.setFont(myFont);
         names.append("Female Names\n\n");
         for(int i = 0; i < Name.femaleNames.length; i++ ) {
-            if(i==36)
+            if(i == 22 || i == 46)
                 names.append("\n");
             if(i==(Name.femaleNames.length-1))
                 names.append(String.format("%-5s", Name.femaleNames[i] + "."));
@@ -129,7 +117,7 @@ public class GUI extends JFrame{
         names.append("\n\nMale Names\n\n");
 
         for (int i=0; i<Name.maleNames.length;i++) {
-            if(i==20)
+            if(i == 25)
                 names.append("\n");
             if(i==(Name.maleNames.length-1))
                 names.append(Name.maleNames[i] + ".");
@@ -140,14 +128,13 @@ public class GUI extends JFrame{
         names.append("\n\nSurname\n\n");
 
         for(int i =0; i<Name.surnames.length;i++) {
-            if(i==16 || i==31)
+            if(i == 20 || i == 39)
                 names.append("\n");
-            if(i==(Name.surnames.length-1))
+            if(i == (Name.surnames.length-1))
                 names.append(Name.surnames[i] + ".");
             else
                 names.append(Name.surnames[i] + ", ");
         }
-        JScrollPane scroller = new JScrollPane(names,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         names.setLineWrap(true);
         JOptionPane.showMessageDialog (null, names);
     }
