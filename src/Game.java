@@ -1,31 +1,41 @@
-import javax.swing.*;
-import java.awt.*;
+public class Game {
 
-public class Game extends JFrame {
+    private static String[] earthInterest = {"Television", "Awkward apology", "Politics", "Computers", "Tease",
+                                             "Games", "Music", "Aliens", "Puns", "Science"};
 
-    private JFrame window;
-    Container gamePane;
+    private static String[] waterInterest = {"Angels", "Religion", "Star Signs", "Art", "The Supernatural",
+                                             "Travel", "Deep Conversation", "Health", "Music", "Nature"};
 
-    public static void main(String args[]) {
-        Game newGame = new Game();
+    private static String[] fireInterest = {"Rugby", "Nature", "Phones", "Gym", "Clothes", "Swimming",
+                                            "Hiking", "Social Media", "Humble Brag", "Hygiene"};
 
+    private static String[] windInterest = {"Cooking", "Dancing", "Weather", "Shopping", "Money",
+                                            "Museum", "Restaraunts", "Tell a Joke", "Complain"};
+
+    private static String[] averageInterest = {"Television", "Religion", "Phones", "Shopping",
+                                               "Computers", "Travel", "Social Media", "Restaraunts",
+                                                "Aliens", "Complain"};
+
+
+    private static String getInterest(Personality p) {
+
+        String interest;
+        int random = (int) (Math.random() * 9) + 1;
+
+        if(p.getPersonalityType(p).equals("Earth"))
+            interest = earthInterest[random];
+        else if(p.getPersonalityType(p).equals("Wind"))
+            interest = windInterest[random];
+        else if(p.getPersonalityType(p).equals("Water"))
+            interest = waterInterest[random];
+        else if(p.getPersonalityType(p).equals("Fire"))
+            interest = fireInterest[random];
+        else
+            interest = averageInterest[random];
+
+
+        return interest;
     }
 
-    public Game() {
-        window = new JFrame("Dating Simulator 2017");
-        window.setVisible(true);
-        window.setSize(800,200);
-        window.setLocation(100,100);
-        window.setLayout(new BorderLayout());
-        window.add(new GUI().fileMenu);
-        window.add(new GUI().namesMenu);
 
-        gamePane = new Container();
-        gamePane.setVisible(true);
-        gamePane.setSize(400,50);
-        gamePane.setBackground(new Color(100,200,200));
-
-        window.add(gamePane, BorderLayout.SOUTH);
-
-    }
 }

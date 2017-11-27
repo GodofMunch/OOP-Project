@@ -126,6 +126,42 @@ public class Personality {
         setSelfAwareness(selfAwareness);
         setCreativity(creativity);
     }
+    public static String getPersonalityType(Personality computer) {
+
+        int upperLimitCheck, bounds = 8;
+
+        if(computer.getCourage() >= bounds)
+            upperLimitCheck=0;
+        else if(computer.getCreativity() >= bounds)
+            upperLimitCheck=1;
+        else if(computer.getCuriosity() >= bounds)
+            upperLimitCheck=2;
+        else if(computer.getEmpathy() >= bounds)
+            upperLimitCheck=3;
+        else if(computer.getHonesty() >= bounds)
+            upperLimitCheck=0;
+        else if(computer.getHumour() >= bounds)
+            upperLimitCheck=1;
+        else if(computer.getIntegrity() >= bounds)
+            upperLimitCheck=2;
+        else if(computer.getIntelligence() >= bounds)
+            upperLimitCheck=3;
+        else if(computer.getSelfAwareness() >= bounds)
+            upperLimitCheck=0;
+        else
+            upperLimitCheck=4;
+
+        if(upperLimitCheck==0)
+            return "Earth";
+        else if(upperLimitCheck == 1)
+            return "Wind";
+        else if(upperLimitCheck == 2)
+            return "Water";
+        else if(upperLimitCheck == 3)
+            return "Fire";
+        else
+            return "Average";
+    }
 
     public String toString() {
         String personalityTraits;

@@ -16,5 +16,4 @@ public class PersonalityDriver {
 
         System.out.print(testPersonality.toString());
     }
-
 }
