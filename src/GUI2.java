@@ -5,8 +5,8 @@ import java.awt.event.*;
 
 public class GUI2 extends JFrame implements ActionListener {
 
-    public JMenu fileMenu;
-    public JMenu namesMenu;
+    private JMenu fileMenu;
+    private JMenu namesMenu;
     private Container myPane;
     private JMenuItem newName;
     private JMenuItem display;
@@ -18,6 +18,14 @@ public class GUI2 extends JFrame implements ActionListener {
     private ImageIcon me = new ImageIcon("src\\Resources\\Images\\me.png");
     private JLabel meHolder = new JLabel(me);
     private JLabel coupleHolder = new JLabel(couple);
+    private static JTextArea questionHolder;
+    private static JFrame playerQuestionsFrame;
+    private static JPanel questionButtons;
+    private static JFrame questionTime;
+    private static JButton welcomeContinue;
+    private static JButton notLikely;
+    private static JButton somewhatLikely;
+    private static JButton likely;
     private final int width = 800;
 
     public static void main(String args[]) {
@@ -93,13 +101,14 @@ public class GUI2 extends JFrame implements ActionListener {
         }
 
         if(e.getSource() == game) {
-            newGameCall();
+            //newGameCall();
+            playerQuestions();
         }
     }
 
     private void newGameCall() {
 
-        System.out.print("New Game");
+       /* System.out.print("New Game");
         myPane.remove(coupleHolder);
         myPane.add(meHolder, BorderLayout.CENTER);
 
@@ -107,33 +116,29 @@ public class GUI2 extends JFrame implements ActionListener {
 
         JButton one = new JButton();
         one.setBackground(Color.pink);
-        try{
-        Image tv = ImageIO.read(getClass().getResource("Resources/Images/tv.png"));
-        one.setIcon(new ImageIcon(tv));
-        } catch (Exception ex) {
+        try {
+            Image tv = ImageIO.read(getClass().getResource("Resources/Images/tv.png"));
+            one.setIcon(new ImageIcon(tv));
+        } catch(Exception ex) {
             System.out.println(ex);
         }
 
-        /*try {
-            Image
-        }*/
-
+        createPlayer();
 
         JButton two = new JButton("Two");
         JButton three = new JButton("Three");
         JButton four = new JButton("Four");
 
-
         JPanel blankOne = new JPanel();
         JPanel blankTwo = new JPanel();
         JPanel blankThree = new JPanel();
-        one.setPreferredSize(new Dimension(((width/7)),50));
-        blankOne.setPreferredSize( new Dimension(((width/8)-5),50));
-        blankTwo.setPreferredSize( new Dimension(((width/8)-5),50));
-        blankThree.setPreferredSize( new Dimension(((width/8)-5),50));
-        two.setPreferredSize(new Dimension(((width/7)),30));
-        three.setPreferredSize(new Dimension(((width/7)),30));
-        four.setPreferredSize(new Dimension(((width/7)),30));
+        one.setPreferredSize(new Dimension(((width / 7)), 50));
+        blankOne.setPreferredSize(new Dimension(((width / 8) - 5), 50));
+        blankTwo.setPreferredSize(new Dimension(((width / 8) - 5), 50));
+        blankThree.setPreferredSize(new Dimension(((width / 8) - 5), 50));
+        two.setPreferredSize(new Dimension(((width / 7)), 30));
+        three.setPreferredSize(new Dimension(((width / 7)), 30));
+        four.setPreferredSize(new Dimension(((width / 7)), 30));
         buttons.setLayout(new FlowLayout());
 
         buttons.add(one);
@@ -146,9 +151,8 @@ public class GUI2 extends JFrame implements ActionListener {
 
         myPane.add(buttons, BorderLayout.SOUTH);
 
-
         buttons.setVisible(true);
-        getContentPane().validate();
+        getContentPane().validate();*/
     }
 
     private void newNameCall() {
@@ -204,5 +208,97 @@ public class GUI2 extends JFrame implements ActionListener {
         System.exit(0);
     }
 
+    private void createPlayer() {
+        Personality playerPersonality = new Personality();
 
+        playerQuestionsFrame = new JFrame("Welcome!");
+        playerQuestionsFrame.setSize(600, 500);
+        playerQuestionsFrame.setLocation(100, 100);
+        playerQuestionsFrame.setResizable(false);
+        playerQuestionsFrame.setBackground(Color.pink);
+
+        JTextArea welcomeText = new JTextArea("        Hello and welcome to Dating Simulator 2017!\n" +
+                "\n Before we begin, we would like to ask you a few questions " +
+                "\n as to better help you with your date selection.\n" +
+                "\n These are just situational questions that we have derived" +
+                "\n From a tried and tested Psychological study often used in " +
+                "\n in the dating world. Don't worry, your answers are " +
+                "\n strictly confidential, but do try to answer as honestly as possible. " +
+                "\n\n Remember, there is no such thing as a wrong answer!" +
+                "\n\n\n                  Good Luck!");
+        welcomeText.setSize(580, 400);
+        welcomeText.setBackground(Color.pink);
+        welcomeText.setForeground(Color.blue);
+        welcomeText.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 16));
+        playerQuestionsFrame.add(welcomeText);
+        welcomeText.setLineWrap(true);
+        welcomeText.setLayout(new FlowLayout());
+        playerQuestionsFrame.setLayout(new FlowLayout());
+
+        welcomeContinue = new JButton("Continue");
+        welcomeContinue.setBackground(Color.pink);
+        welcomeContinue.setForeground(Color.blue);
+        playerQuestionsFrame.add(welcomeContinue);
+        ButtonHandler continueHandler = new ButtonHandler();
+        welcomeContinue.addActionListener(continueHandler);
+        playerQuestionsFrame.setVisible(true);
+    }
+
+    private class ButtonHandler implements ActionListener{
+        public void actionPerformed(ActionEvent e)
+        {
+            if(e.getSource() == welcomeContinue)
+            {
+                playerQuestions();
+                playerQuestionsFrame.setVisible(false);
+            }
+        }
+    }
+
+    private void playerQuestions() {
+
+        questionTime = new JFrame(("Questions"));
+        questionTime.setSize(800, 200);
+        questionTime.setLocation(200, 200);
+        questionTime.setLayout(new BorderLayout());
+        questionTime.setBackground(Color.pink);
+
+        notLikely = new JButton("Not Likely");
+        somewhatLikely = new JButton("Somewhat Likely");
+        likely = new JButton("Likely");
+
+        for(int i =1;i<=9;i++) {
+            if(i == 1) {
+                questionHolder = new JTextArea("  You walk across the road with a friend , going for a drink, when you" +
+                        " see    an old lady behind you tryng to cross also. The lights are turning red again  so you will" +
+                        " have to wait wih her for another three minutes if you go back. How likely are you to help her");
+
+                questionHolder.setLineWrap(true);
+                questionHolder.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 16));
+            }
+
+
+        }
+
+
+        questionButtons = new JPanel();
+        questionButtons.setLayout(new FlowLayout());
+        questionButtons.add(notLikely);
+        questionButtons.add(somewhatLikely);
+        questionButtons.add(likely);
+        notLikely.setSize(100,30);
+        somewhatLikely.setSize(100,30);
+        likely.setSize(100,30);
+        likely.setBackground(Color.pink);
+        notLikely.setBackground(Color.pink);
+        somewhatLikely.setBackground(Color.pink);
+        likely.setForeground(Color.blue);
+        somewhatLikely.setForeground(Color.blue);
+        notLikely.setForeground(Color.blue);
+        questionTime.add(questionHolder, BorderLayout.CENTER);
+        questionTime.add(questionButtons, BorderLayout.SOUTH);
+        questionTime.setVisible(true);
+
+
+    }
 }

@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class Game {
 
     private static String[] earthInterest = {"Television", "Awkward apology", "Politics", "Computers", "Tease",
@@ -36,6 +39,4 @@ public class Game {
 
         return interest;
     }
-
-
 }
