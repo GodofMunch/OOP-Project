@@ -3,6 +3,9 @@ import java.awt.*;
 
 public class Game {
 
+    static int multiplier;
+    Personality computerPersonality = getComputerPersonality();
+
     public static void main(String args[]) {
         GUI2 myGUI = new GUI2();
         myGUI.setVisible(true);
@@ -27,10 +30,10 @@ public class Game {
 
     public static String[] personalityType = new String[]{"Earth", "Wind", "Fire", "Water", "Average"};
 
-    private static String getInterest(Personality p) {
+    public static String getInterest(Personality p) {
 
         String interest;
-        int random = (int) (Math.random() * 9) + 1;
+        int random = (int) (Math.random() * 10) + 1;
 
         if(p.getPersonalityType(p).equals("Earth"))
             interest = earthInterest[random];
@@ -73,7 +76,7 @@ public class Game {
         return personalityType[upperLimitCheck];
     }
 
-    public static Personality computerPersonality() {
+    public static Personality getComputerPersonality() {
         Personality myPersonsPersonality = new Personality();
 
         myPersonsPersonality.setEmpathy(randomNumber());
@@ -104,5 +107,49 @@ public class Game {
             }
         }
         return random;
+    }
+
+    public static int decideMultiplier(String playerType, String computerType) {
+        int negativeMultiplierAverage = -2;
+        int positiveMultiplierAverage = 2;
+        int neutralMultiplier = 1;
+        int positiveMultiplierExtreme = 3;
+        int negativeMultiplierExtreme = -3;
+
+
+        if((computerType.equals("Earth") && playerType.equals("Wind")) || (computerType.equals("Fire") && playerType.equals("Water"))
+                || (computerType.equals("Wind") && playerType.equals("Earth")) || (computerType.equals("Fire") && playerType.equals("Water")))
+            multiplier = negativeMultiplierExtreme;
+
+        else if((computerType.equals("Earth") && playerType.equals("Fire")) || (computerType.equals("Fire") && playerType.equals("Wind"))
+                || (computerType.equals("Wind") && playerType.equals("Water")) || (computerType.equals("Water") && playerType.equals("Earth")))
+            multiplier = negativeMultiplierAverage;
+
+        else if((computerType.equals("Wind") && playerType.equals("Earth")) || (computerType.equals("Wind") && playerType.equals("Fire"))
+                || (computerType.equals("Water") && playerType.equals("Wind")) || (computerType.equals("Earth") && playerType.equals("Water")))
+            multiplier = positiveMultiplierAverage;
+
+        else if((computerType.equals("Earth") && playerType.equals("Earth")) || (computerType.equals("Fire") && playerType.equals("Fire"))
+                || (computerType.equals("Wind") && playerType.equals("Wind")) || (computerType.equals("Water") && playerType.equals("Water")))
+            multiplier = positiveMultiplierExtreme;
+
+        else
+            multiplier = neutralMultiplier;
+
+        return multiplier;
+    }
+
+    public void StartGame()
+    {
+        Person computerName = new Person();
+        computerName.setGender(GUI2.player.getGender());
+        String computerType = personalityType(computerPersonality);
+
+        Personality playerPersonality = GUI2.playerPersonality;
+        String playerType = personalityType(playerPersonality);
+        multiplier = decideMultiplier(playerType, computerType);
+
+
+
     }
 }

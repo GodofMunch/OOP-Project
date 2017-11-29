@@ -1,3 +1,6 @@
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ToolBar;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +19,10 @@ public class GUI2 extends JFrame implements ActionListener {
     private JMenuItem game;
     private ImageIcon couple = new ImageIcon("src\\Resources\\Images\\Couple.jpg");
     private ImageIcon me = new ImageIcon("src\\Resources\\Images\\me.png");
-    private JLabel meHolder = new JLabel(me);
+    private ImageIcon man = new ImageIcon("src\\Resources\\Images\\man.jpg");
+    private ImageIcon woman = new ImageIcon("src\\Resources\\Images\\woman.jpg");
+    private JLabel womanHolder = new JLabel(woman);
+    private JLabel manHolder = new JLabel(man);
     private JLabel coupleHolder = new JLabel(couple);
     private static JTextArea questionHolder;
     private static JFrame playerQuestionsFrame;
@@ -26,11 +32,13 @@ public class GUI2 extends JFrame implements ActionListener {
     private static JButton notLikely;
     private static JButton somewhatLikely;
     private static JButton likely;
+    private static JButton one;
+    public static JProgressBar score;
     private final int width = 800;
     private static int i =1;
-    public Personality playerPersonality = new Personality();
-    private char gender;
-    public Person player = new Person(gender);
+    public static Personality playerPersonality = new Personality();
+    private static char gender;
+    public static Person player = new Person(gender);
 
     public static void main(String args[]) {
         GUI2 myGUI = new GUI2();
@@ -42,7 +50,6 @@ public class GUI2 extends JFrame implements ActionListener {
         this.setVisible(true);
         myPane = getContentPane();
         this.setLayout(new BorderLayout());
-
         //myPane.add(new JLabel(new ImageIcon("src\\Resources\\Images\\Couple.jpg")), BorderLayout.CENTER);
         myPane.add(coupleHolder, BorderLayout.CENTER);
         // myPane.add(new JLabel(new ImageIcon("C:\\Users\\t00139303\\Documents\\GitHub\\Resources\\Images\\Couple.jpg")), BorderLayout.CENTER);
@@ -105,6 +112,7 @@ public class GUI2 extends JFrame implements ActionListener {
 
         if(e.getSource() == game) {
             createPlayer();
+            i=0;
         }
 
         if(e.getSource() == welcomeContinue)
@@ -230,12 +238,15 @@ public class GUI2 extends JFrame implements ActionListener {
 
         System.out.print("New Game");
         myPane.remove(coupleHolder);
-        myPane.add(meHolder, BorderLayout.CENTER);
+        if(gender=='M')
+            myPane.add(manHolder, BorderLayout.CENTER);
+        else
+            myPane.add(womanHolder, BorderLayout.CENTER);
 
         JPanel buttons = new JPanel();
         buttons.setBackground(Color.pink);
 
-        JButton one = new JButton();
+        one = new JButton();
         one.setBackground(Color.pink);
         try {
             Image tv = ImageIO.read(getClass().getResource("Resources/Images/tv.png"));
@@ -243,6 +254,22 @@ public class GUI2 extends JFrame implements ActionListener {
         } catch(Exception ex) {
             System.out.println(ex);
         }
+
+
+        //https://stackoverflow.com/questions/15199091/progress-bar-java
+        JPanel scoreHolder = new JPanel();
+        scoreHolder.setBackground(Color.pink);
+        score = new JProgressBar(0,100);
+        score.setValue(50);
+        score.setBackground(Color.pink);
+        score.setForeground(Color.blue);
+        JToolBar scoreToolbar = new JToolBar();
+        scoreToolbar.add(scoreHolder);
+        scoreToolbar.setPreferredSize(new Dimension(width, 40));
+        scoreHolder.add(score);
+
+        myPane.add(scoreToolbar, BorderLayout.NORTH);
+
 
         JButton two = new JButton("Two");
         JButton three = new JButton("Three");
@@ -475,5 +502,13 @@ public class GUI2 extends JFrame implements ActionListener {
         return gender;
     }
 
+    private static String buttonPicker() {
 
+        String type = Game.getInterest(Personality computer)
+
+        for(int buttonPicker = 0; buttonPicker < 10; buttonPicker++){
+
+
+        }
+    }
 }
