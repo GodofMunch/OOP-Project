@@ -21,12 +21,20 @@ public class GUI2 extends JFrame implements ActionListener {
     private static JTextArea questionHolder;
     private static JFrame playerQuestionsFrame;
     private static JPanel questionButtons;
-    private static JFrame questionTime;
+    private static JFrame questionTime = new JFrame(("Questions"));
     private static JButton welcomeContinue;
     private static JButton notLikely;
     private static JButton somewhatLikely;
     private static JButton likely;
     private final int width = 800;
+    private static int i =1;
+    private ButtonHandler continueHandler;
+    public Personality playerPersonality = new Personality();
+    ButtonHandler notLikelyHandler;
+    ButtonHandler somewhatLikelyHandler;
+    ButtonHandler likelyHandler;
+
+
 
     public static void main(String args[]) {
         GUI2 myGUI = new GUI2();
@@ -88,6 +96,9 @@ public class GUI2 extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
+        int randomMid=0;
+        int randomLow=0;
+        int randomHigh=0;
         if(e.getSource() == newName) {
             newNameCall();
         }
@@ -101,18 +112,123 @@ public class GUI2 extends JFrame implements ActionListener {
         }
 
         if(e.getSource() == game) {
-            //newGameCall();
+            createPlayer();
+        }
+
+        if(e.getSource() == welcomeContinue)
+        {
+            System.out.print("ASKING QUESTIONS");
+            playerQuestionsFrame.setVisible(false);
             playerQuestions();
         }
+        if(i>1)
+            playerQuestions();
+        if(i == 1 && e.getSource()==notLikely) {
+            playerPersonality.setEmpathy(randomLow());
+        }
+        if(i == 1 && e.getSource()==somewhatLikely) {
+            playerPersonality.setEmpathy(randomMid());
+        }
+        if(i == 1 && e.getSource()==likely) {
+            playerPersonality.setEmpathy(randomHigh());
+        }
+
+        //Empathy
+
+
+        if(i == 2 && e.getSource()==notLikely)
+            playerPersonality.setHonesty(randomLow());
+        if(i == 2 && e.getSource()==somewhatLikely)
+            playerPersonality.setHonesty(randomMid());
+        if(i == 2 && e.getSource()==likely);
+        playerPersonality.setHonesty(randomHigh());
+        //Honesty
+
+
+        if(i == 3 && e.getSource()==notLikely)
+            playerPersonality.setCourage(randomLow());
+        if(i == 3 && e.getSource()==somewhatLikely)
+            playerPersonality.setCourage(randomMid());
+        if(i == 3 && e.getSource()==likely);
+        playerPersonality.setCourage(randomHigh());
+
+        //Courage
+
+
+        if(i == 4 && e.getSource()==notLikely)
+            playerPersonality.setHumour(randomLow());
+        if(i == 4 && e.getSource()==somewhatLikely)
+            playerPersonality.setHumour(randomMid());
+        if(i == 4 && e.getSource()==likely);
+        playerPersonality.setHumour(randomHigh());
+        //Humour
+
+
+        if(i == 5 && e.getSource()==notLikely)
+            playerPersonality.setCreativity(randomLow());
+        if(i == 5 && e.getSource()==somewhatLikely)
+            playerPersonality.setCreativity(randomMid());
+        if(i == 5 && e.getSource()==likely);
+        playerPersonality.setCreativity(randomHigh());
+        //Creativity
+
+
+        if(i == 6 && e.getSource()==notLikely)
+            playerPersonality.setSelfAwareness(randomLow());
+        if(i == 6 && e.getSource()==somewhatLikely)
+            playerPersonality.setSelfAwareness(randomMid());
+        if(i == 6 && e.getSource()==likely);
+        playerPersonality.setSelfAwareness(randomHigh());
+        //Self Awareness
+
+
+        if(i == 7 && e.getSource()==notLikely)
+            playerPersonality.setIntegrity(randomHigh());
+        if(i == 7 && e.getSource()==somewhatLikely)
+            playerPersonality.setIntegrity(randomMid());
+        if(i == 7 && e.getSource()==likely);
+        playerPersonality.setIntegrity(randomLow());
+        //Integrity low is high
+
+
+        if(i == 8 && e.getSource()==notLikely)
+            playerPersonality.setCuriosity(randomLow());
+        if(i == 8 && e.getSource()==somewhatLikely)
+            playerPersonality.setCuriosity(randomMid());
+        if(i == 8 && e.getSource()==likely);
+        playerPersonality.setCuriosity(randomHigh());
+        //Curiosity
+
+
+        if(i == 9 && e.getSource()==notLikely)
+            playerPersonality.setIntelligence(randomHigh());
+        if(i == 9 && e.getSource()==somewhatLikely)
+            playerPersonality.setIntelligence(randomMid());
+        if(i == 9 && e.getSource()==likely);
+        playerPersonality.setIntelligence(randomLow());
+        //questionTime.setVisible(false);
+
+        if(i==10) {
+            newGameCall();
+            questionTime.setVisible(false);
+            System.out.print(playerPersonality.toString());
+        }//Intelligence low is high
+        i++;
+        //The code in here i imagine would work if i could differentiate between which button is being called;
+        //What i ahd hoped is that each time an event
     }
+    private int randomMid() { return (int) (Math.random() *4 + 4); }
+    private int randomLow() { return (int) (Math.random() * 3 + 1); }
+    private int randomHigh() { return (int) (Math.random() * 3 + 7); }
 
     private void newGameCall() {
 
-       /* System.out.print("New Game");
+        System.out.print("New Game");
         myPane.remove(coupleHolder);
         myPane.add(meHolder, BorderLayout.CENTER);
 
         JPanel buttons = new JPanel();
+        buttons.setBackground(Color.pink);
 
         JButton one = new JButton();
         one.setBackground(Color.pink);
@@ -123,15 +239,16 @@ public class GUI2 extends JFrame implements ActionListener {
             System.out.println(ex);
         }
 
-        createPlayer();
-
         JButton two = new JButton("Two");
         JButton three = new JButton("Three");
         JButton four = new JButton("Four");
 
         JPanel blankOne = new JPanel();
+        blankOne.setBackground(Color.pink);
         JPanel blankTwo = new JPanel();
+        blankTwo.setBackground(Color.pink);
         JPanel blankThree = new JPanel();
+        blankThree.setBackground(Color.pink);
         one.setPreferredSize(new Dimension(((width / 7)), 50));
         blankOne.setPreferredSize(new Dimension(((width / 8) - 5), 50));
         blankTwo.setPreferredSize(new Dimension(((width / 8) - 5), 50));
@@ -148,11 +265,9 @@ public class GUI2 extends JFrame implements ActionListener {
         buttons.add(three);
         buttons.add(blankThree);
         buttons.add(four);
-
         myPane.add(buttons, BorderLayout.SOUTH);
-
         buttons.setVisible(true);
-        getContentPane().validate();*/
+        getContentPane().validate();
     }
 
     private void newNameCall() {
@@ -209,7 +324,6 @@ public class GUI2 extends JFrame implements ActionListener {
     }
 
     private void createPlayer() {
-        Personality playerPersonality = new Personality();
 
         playerQuestionsFrame = new JFrame("Welcome!");
         playerQuestionsFrame.setSize(600, 500);
@@ -239,53 +353,42 @@ public class GUI2 extends JFrame implements ActionListener {
         welcomeContinue.setBackground(Color.pink);
         welcomeContinue.setForeground(Color.blue);
         playerQuestionsFrame.add(welcomeContinue);
-        ButtonHandler continueHandler = new ButtonHandler();
-        welcomeContinue.addActionListener(continueHandler);
+        welcomeContinue.addActionListener(this);
         playerQuestionsFrame.setVisible(true);
     }
 
     private class ButtonHandler implements ActionListener{
+
         public void actionPerformed(ActionEvent e)
         {
-            if(e.getSource() == welcomeContinue)
-            {
-                playerQuestions();
-                playerQuestionsFrame.setVisible(false);
-            }
+
         }
     }
 
     private void playerQuestions() {
 
-        questionTime = new JFrame(("Questions"));
-        questionTime.setSize(800, 200);
+        questionTime.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        questionTime.setSize(500, 200);
         questionTime.setLocation(200, 200);
         questionTime.setLayout(new BorderLayout());
         questionTime.setBackground(Color.pink);
-
+        questionHolder= new JTextArea();
         notLikely = new JButton("Not Likely");
         somewhatLikely = new JButton("Somewhat Likely");
         likely = new JButton("Likely");
-
-        for(int i =1;i<=9;i++) {
-            if(i == 1) {
-                questionHolder = new JTextArea("  You walk across the road with a friend , going for a drink, when you" +
-                        " see    an old lady behind you tryng to cross also. The lights are turning red again  so you will" +
-                        " have to wait wih her for another three minutes if you go back. How likely are you to help her");
-
-                questionHolder.setLineWrap(true);
-                questionHolder.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 16));
-            }
-
-
-        }
-
-
+        questionHolder.append(questionText());
+        questionHolder.setLineWrap(true);
+        questionHolder.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
+        questionHolder.setBackground(Color.pink);
+        questionHolder.setForeground(Color.blue);
+        questionHolder.setEditable(false);
+        questionHolder.validate();
         questionButtons = new JPanel();
         questionButtons.setLayout(new FlowLayout());
         questionButtons.add(notLikely);
         questionButtons.add(somewhatLikely);
         questionButtons.add(likely);
+        questionButtons.setBackground(Color.pink);
         notLikely.setSize(100,30);
         somewhatLikely.setSize(100,30);
         likely.setSize(100,30);
@@ -297,8 +400,63 @@ public class GUI2 extends JFrame implements ActionListener {
         notLikely.setForeground(Color.blue);
         questionTime.add(questionHolder, BorderLayout.CENTER);
         questionTime.add(questionButtons, BorderLayout.SOUTH);
+        notLikely.addActionListener(this);
+        somewhatLikely.addActionListener(this);
+        likely.addActionListener(this);
+
         questionTime.setVisible(true);
 
 
+    }
+
+    private static String questionText() {
+        String text;
+
+        if(i == 1) //Empathy Text
+            text = "You walk across the road with a friend, going for a drink,  when you" +
+                   " see an old lady behind you trying to cross also.   The lights are turning red again so you will" +
+                   " have to wait   with her for another three minutes if you go back. How      " +
+                   "likely are you to help her?";
+
+        else if(i == 2) //Honesty text
+            text =  "You are walking down the street when you find a wallet brimming with 50 euro notes. " +
+                    "There is no one around and you know you could get away with putting it in your pocket. " +
+                    "How likely are you to turn it in to the police station, or try to find the owner on Facebook?";
+
+        else if(i == 3) //Courage text
+            text = "You are on a night out. Everyone is laughing and joking and generally having a good time." +
+                    "As you are leaving, you spot a man you've never seen before being attacked as he walks down " +
+                    "the road. How likely are you to intervene?";
+
+        else if(i == 4) //Humour text
+            text = "You are out for a walk with your friend on a cold, crisp winters morning when your friend slips on" +
+                    "the ice, uninjured. How likely are you to fall beside your friend with laughter?";
+
+        else if(i == 5) //Creativity text
+            text = "You walk past a man in the street handing out fliers that advertise the introduction of an up and " +
+                    "coming artists work in a gallery that is an hours drive from your house. You have heard of them " +
+                    "somewhat through social media and are aware that it may well be some interesting art. How likely " +
+                    "are you to go?";
+        else if(i == 6) //Self Awareness text
+            text = "You are at a party and an old school mate is there. You didn't particularly get on with him" +
+                    "and found him to be quite annoying. He brings up an embarrassing story about you in front of a " +
+                    "crowd in order to make himself look charismatic How likely are you to laugh along with him in order" +
+                    "to not cause a scene";
+        else if(i == 7) //Integrity text
+            text = "The same person seems to have forgotten that you were in the classroom the same day he did not make " +
+                    "it to the toilet on time. When he has his story told, how likely are you to remind him in front of " +
+                    "the same crowd?";
+        else if(i == 8) //Curiosity text
+            text = "An ex-partner of yours that you parted ways with amicably sends you a message asking to meet for a drink " +
+                    "saying that they have split from their current partner. How likely are you to take them up on their offer?";
+        else if(i == 9) //Intelligence text
+            text = "You have been asked to go for dinner on a friday evening, but you have been reading a historical book of " +
+                    "an area that you have great interest in. It has been a long week, but you are interested in the book. " +
+                    "How likely are you to abandon the book in favor of a night's wining and dining?";
+        else
+            text = "";
+
+
+    return text;
     }
 }
