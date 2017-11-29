@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f431eb1-46d0-4bb0-8b1e-959161f3dbd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Resources/Images/Thumbs.db" afterPath="$PROJECT_DIR$/src/Resources/Images/Thumbs.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Resources/Images/man.jpg" afterPath="$PROJECT_DIR$/src/Resources/Images/man.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Resources/Images/woman.jpg" afterPath="$PROJECT_DIR$/src/Resources/Images/woman.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI2.java" afterPath="$PROJECT_DIR$/src/GUI2.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
     </list>
@@ -21,14 +18,15 @@
       <file leaf-file-name="Personality.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Personality.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="133" column="30" lean-forward="true" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
               <folding>
                 <element signature="e#1100#1101#0" expanded="true" />
                 <element signature="e#1138#1139#0" expanded="true" />
                 <element signature="e#1183#1184#0" expanded="true" />
                 <element signature="e#1219#1220#0" expanded="true" />
                 <element signature="e#1276#1277#0" expanded="true" />
+                <element signature="e#1324#1325#0" expanded="true" />
                 <element signature="e#1375#1376#0" expanded="true" />
                 <element signature="e#1417#1418#0" expanded="true" />
                 <element signature="e#1464#1465#0" expanded="true" />
@@ -60,7 +58,7 @@
       <file leaf-file-name="PersonDriver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PersonDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
+            <state relative-caret-position="918">
               <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,6 +66,16 @@
                 <element signature="method#myPersonsPersonality#0;class#PersonDriver#0" expanded="false" />
                 <marker date="1511798914967" expanded="true" signature="3615:3885" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Name.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Name.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,21 +103,18 @@
       <file leaf-file-name="GUI2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="506" column="59" lean-forward="false" selection-start-line="506" selection-start-column="59" selection-end-line="506" selection-end-column="59" />
+            <state relative-caret-position="137">
+              <caret line="643" column="0" lean-forward="false" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GUI2#0;class#GUI2#0" expanded="false" />
                 <element signature="method#createFileMenu#0;class#GUI2#0" expanded="false" />
                 <element signature="method#createNamesMenu#0;class#GUI2#0" expanded="false" />
-                <element signature="method#actionPerformed#0;class#GUI2#0" expanded="false" />
-                <element signature="method#newNameCall#0;class#GUI2#0" expanded="false" />
                 <element signature="method#displayCall#0;class#GUI2#0" expanded="false" />
                 <element signature="method#exitCall#0;class#GUI2#0" expanded="false" />
                 <element signature="method#createPlayer#0;class#GUI2#0" expanded="false" />
                 <element signature="method#playerQuestions#0;class#GUI2#0" expanded="false" />
-                <element signature="method#questionText#0;class#GUI2#0" expanded="false" />
-                <element signature="method#genderSelect#0;class#GUI2#0" expanded="false" />
+                <element signature="method#buttonPicker#0;class#GUI2#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -118,12 +123,12 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1712">
-              <caret line="6" column="63" lean-forward="false" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
+            <state relative-caret-position="136">
+              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#randomNumber#0;class#Game#0" expanded="false" />
-                <marker date="1511929381625" expanded="false" signature="2882:3520" ph="{...}" />
+                <element signature="method#decideMultiplier#0;class#Game#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -132,8 +137,8 @@
       <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="85">
+              <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
               <folding>
                 <element signature="e#216#217#0" expanded="true" />
                 <element signature="e#241#242#0" expanded="true" />
@@ -172,8 +177,8 @@
         <option value="$PROJECT_DIR$/src/GUI.java" />
         <option value="$PROJECT_DIR$/src/PersonalityDriver.java" />
         <option value="$PROJECT_DIR$/src/Personality.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/GUI2.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
   </component>
@@ -195,7 +200,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-5" />
     <option name="y" value="2" />
     <option name="width" value="772" />
@@ -741,7 +746,7 @@
     <option name="totallyTimeSpent" value="56301000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -818,7 +823,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -887,6 +892,7 @@
             <element signature="e#1183#1184#0" expanded="true" />
             <element signature="e#1219#1220#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
             <element signature="e#1417#1418#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -972,6 +978,7 @@
             <element signature="e#1183#1184#0" expanded="true" />
             <element signature="e#1219#1220#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
             <element signature="e#1417#1418#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -1039,6 +1046,7 @@
             <element signature="e#1183#1184#0" expanded="true" />
             <element signature="e#1219#1220#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
             <element signature="e#1417#1418#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -1106,6 +1114,7 @@
             <element signature="e#1183#1184#0" expanded="true" />
             <element signature="e#1219#1220#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
             <element signature="e#1417#1418#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -1173,6 +1182,7 @@
             <element signature="e#1183#1184#0" expanded="true" />
             <element signature="e#1219#1220#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
             <element signature="e#1417#1418#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -1247,6 +1257,7 @@
             <element signature="e#1183#1184#0" expanded="true" />
             <element signature="e#1219#1220#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
             <element signature="e#1417#1418#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -1333,25 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#216#217#0" expanded="true" />
-            <element signature="e#241#242#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Name.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1370,16 +1362,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PersonDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#PersonDriver#0" expanded="false" />
+            <element signature="method#myPersonsPersonality#0;class#PersonDriver#0" expanded="false" />
+            <marker date="1511798914967" expanded="true" signature="3615:3885" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PersonalityDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Personality.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="171">
+          <caret line="133" column="30" lean-forward="true" selection-start-line="133" selection-start-column="30" selection-end-line="133" selection-end-column="30" />
           <folding>
             <element signature="e#1100#1101#0" expanded="true" />
             <element signature="e#1138#1139#0" expanded="true" />
             <element signature="e#1183#1184#0" expanded="true" />
             <element signature="e#1219#1220#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
             <element signature="e#1417#1418#0" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -1397,56 +1411,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PersonalityDriver.java">
+    <entry file="file://$PROJECT_DIR$/src/Name.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="663">
+          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PersonDriver.java">
+    <entry file="file://$PROJECT_DIR$/src/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#PersonDriver#0" expanded="false" />
-            <element signature="method#myPersonsPersonality#0;class#PersonDriver#0" expanded="false" />
-            <marker date="1511798914967" expanded="true" signature="3615:3885" ph="{...}" />
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#241#242#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="506" column="59" lean-forward="false" selection-start-line="506" selection-start-column="59" selection-end-line="506" selection-end-column="59" />
+        <state relative-caret-position="137">
+          <caret line="643" column="0" lean-forward="false" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#GUI2#0;class#GUI2#0" expanded="false" />
             <element signature="method#createFileMenu#0;class#GUI2#0" expanded="false" />
             <element signature="method#createNamesMenu#0;class#GUI2#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#GUI2#0" expanded="false" />
-            <element signature="method#newNameCall#0;class#GUI2#0" expanded="false" />
             <element signature="method#displayCall#0;class#GUI2#0" expanded="false" />
             <element signature="method#exitCall#0;class#GUI2#0" expanded="false" />
             <element signature="method#createPlayer#0;class#GUI2#0" expanded="false" />
             <element signature="method#playerQuestions#0;class#GUI2#0" expanded="false" />
-            <element signature="method#questionText#0;class#GUI2#0" expanded="false" />
-            <element signature="method#genderSelect#0;class#GUI2#0" expanded="false" />
+            <element signature="method#buttonPicker#0;class#GUI2#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1712">
-          <caret line="6" column="63" lean-forward="false" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
+        <state relative-caret-position="136">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#randomNumber#0;class#Game#0" expanded="false" />
-            <marker date="1511929381625" expanded="false" signature="2882:3520" ph="{...}" />
+            <element signature="method#decideMultiplier#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -32,13 +32,16 @@ public class GUI2 extends JFrame implements ActionListener {
     private static JButton notLikely;
     private static JButton somewhatLikely;
     private static JButton likely;
-    private static JButton one;
     public static JProgressBar score;
     private final int width = 800;
-    private static int i =1;
+    private static int i = 1;
     public static Personality playerPersonality = new Personality();
     private static char gender;
     public static Person player = new Person(gender);
+    private JButton one;
+    private JButton two;
+    private JButton three;
+    private JButton four;
 
     public static void main(String args[]) {
         GUI2 myGUI = new GUI2();
@@ -112,118 +115,498 @@ public class GUI2 extends JFrame implements ActionListener {
 
         if(e.getSource() == game) {
             createPlayer();
-            i=0;
+            i = 0;
         }
 
-        if(e.getSource() == welcomeContinue)
-        {
-            System.out.print("ASKING QUESTIONS");
+        if(e.getSource() == welcomeContinue) {
+            //System.out.print("ASKING QUESTIONS");
             playerQuestionsFrame.setVisible(false);
             playerQuestions();
         }
-        if(i>1)
+        if(i > 1)
             playerQuestions();
-        if(i == 1 && e.getSource()==notLikely) {
+        if(i == 1 && e.getSource() == notLikely) {
             playerPersonality.setEmpathy(randomLow());
         }
-        if(i == 1 && e.getSource()==somewhatLikely) {
+        if(i == 1 && e.getSource() == somewhatLikely) {
             playerPersonality.setEmpathy(randomMid());
         }
-        if(i == 1 && e.getSource()==likely) {
+        if(i == 1 && e.getSource() == likely) {
             playerPersonality.setEmpathy(randomHigh());
         }
 
         //Empathy
 
 
-        if(i == 2 && e.getSource()==notLikely)
+        if(i == 2 && e.getSource() == notLikely) {
             playerPersonality.setHonesty(randomLow());
-        if(i == 2 && e.getSource()==somewhatLikely)
+        }
+        if(i == 2 && e.getSource() == somewhatLikely) {
             playerPersonality.setHonesty(randomMid());
-        if(i == 2 && e.getSource()==likely);
-        playerPersonality.setHonesty(randomHigh());
+        }
+        if(i == 2 && e.getSource() == likely) {
+            playerPersonality.setHonesty(randomHigh());
+        }
+
         //Honesty
 
 
-        if(i == 3 && e.getSource()==notLikely)
+        if(i == 3 && e.getSource() == notLikely) {
             playerPersonality.setCourage(randomLow());
-        if(i == 3 && e.getSource()==somewhatLikely)
+        }
+        if(i == 3 && e.getSource() == somewhatLikely) {
             playerPersonality.setCourage(randomMid());
-        if(i == 3 && e.getSource()==likely);
-        playerPersonality.setCourage(randomHigh());
+        }
+        if(i == 3 && e.getSource() == likely) {
+            playerPersonality.setCourage(randomHigh());
+        }
 
         //Courage
 
 
-        if(i == 4 && e.getSource()==notLikely)
+        if(i == 4 && e.getSource() == notLikely) {
             playerPersonality.setHumour(randomLow());
-        if(i == 4 && e.getSource()==somewhatLikely)
+        }
+        if(i == 4 && e.getSource() == somewhatLikely) {
             playerPersonality.setHumour(randomMid());
-        if(i == 4 && e.getSource()==likely);
-        playerPersonality.setHumour(randomHigh());
+        }
+        if(i == 4 && e.getSource() == likely) {
+            playerPersonality.setHumour(randomHigh());
+        }
+
         //Humour
 
 
-        if(i == 5 && e.getSource()==notLikely)
+        if(i == 5 && e.getSource() == notLikely) {
             playerPersonality.setCreativity(randomLow());
-        if(i == 5 && e.getSource()==somewhatLikely)
+        }
+        if(i == 5 && e.getSource() == somewhatLikely) {
             playerPersonality.setCreativity(randomMid());
-        if(i == 5 && e.getSource()==likely);
-        playerPersonality.setCreativity(randomHigh());
+        }
+        if(i == 5 && e.getSource() == likely) {
+            playerPersonality.setCreativity(randomHigh());
+        }
         //Creativity
 
 
-        if(i == 6 && e.getSource()==notLikely)
+        if(i == 6 && e.getSource() == notLikely) {
             playerPersonality.setSelfAwareness(randomLow());
-        if(i == 6 && e.getSource()==somewhatLikely)
+        }
+        if(i == 6 && e.getSource() == somewhatLikely) {
             playerPersonality.setSelfAwareness(randomMid());
-        if(i == 6 && e.getSource()==likely);
-        playerPersonality.setSelfAwareness(randomHigh());
+        }
+        if(i == 6 && e.getSource() == likely) {
+            playerPersonality.setSelfAwareness(randomHigh());
+        }
         //Self Awareness
 
 
-        if(i == 7 && e.getSource()==notLikely)
+        if(i == 7 && e.getSource() == notLikely) {
             playerPersonality.setIntegrity(randomHigh());
-        if(i == 7 && e.getSource()==somewhatLikely)
+        }
+        if(i == 7 && e.getSource() == somewhatLikely) {
             playerPersonality.setIntegrity(randomMid());
-        if(i == 7 && e.getSource()==likely);
-        playerPersonality.setIntegrity(randomLow());
+        }
+        if(i == 7 && e.getSource() == likely) {
+            playerPersonality.setIntegrity(randomLow());
+        }
         //Integrity low is high
 
 
-        if(i == 8 && e.getSource()==notLikely)
+        if(i == 8 && e.getSource() == notLikely) {
             playerPersonality.setCuriosity(randomLow());
-        if(i == 8 && e.getSource()==somewhatLikely)
+        }
+        if(i == 8 && e.getSource() == somewhatLikely) {
             playerPersonality.setCuriosity(randomMid());
-        if(i == 8 && e.getSource()==likely);
-        playerPersonality.setCuriosity(randomHigh());
+        }
+        if(i == 8 && e.getSource() == likely) {
+            playerPersonality.setCuriosity(randomHigh());
+        }
         //Curiosity
 
 
-        if(i == 9 && e.getSource()==notLikely)
+        if(i == 9 && e.getSource() == notLikely) {
             playerPersonality.setIntelligence(randomHigh());
-        if(i == 9 && e.getSource()==somewhatLikely)
+        }
+        if(i == 9 && e.getSource() == somewhatLikely) {
             playerPersonality.setIntelligence(randomMid());
-        if(i == 9 && e.getSource()==likely);
-        playerPersonality.setIntelligence(randomLow());
+        }
+        if(i == 9 && e.getSource() == likely) {
+            playerPersonality.setIntelligence(randomLow());
+        }//Intelligence low is high
         //questionTime.setVisible(false);
 
-        if(i==10)
-        {
+        if(i == 10) {
             questionTime.setVisible(false);
             gender = genderSelect();
+            //Game.computerName.setGender(gender);
             i++;
         }
 
-        if(i==11) {
+        if(i == 11) {
+            Game.startGame();
             newGameCall();
-        }//Intelligence low is high
+        }
         i++;
-        //The code in here i imagine would work if i could differentiate between which button is being called;
+
+        String type = Personality.getPersonalityType(Game.computerPersonality);
+        boolean goodGuess = false;
+
+        if(e.getSource() == one) {
+            if(type.equals("Earth")) {
+                for(int earthCheck = 0; earthCheck < Game.earthInterest.length; earthCheck++) {
+                    if(one.getText().equals(Game.earthInterest[earthCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveEarth();
+                } else {
+                    Game.negativeEarth();
+                }
+            }
+
+            if(type.equals("Wind")) {
+                for(int windCheck = 0; windCheck < Game.windInterest.length; windCheck++) {
+                    if(one.getText().equals(Game.windInterest[windCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWind();
+                } else {
+                    Game.negativeWind();
+                }
+            }
+
+            if(type.equals("Fire")) {
+                for(int fireCheck = 0; fireCheck < Game.fireInterest.length; fireCheck++) {
+                    if(one.getText().equals(Game.fireInterest[fireCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveFire();
+                } else {
+                    Game.negativeFire();
+                }
+            }
+
+            if(type.equals("Water")) {
+                for(int waterCheck = 0; waterCheck < Game.waterInterest.length; waterCheck++) {
+                    if(one.getText().equals(Game.waterInterest[waterCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWater();
+                } else {
+                    Game.negativeWater();
+                }
+            }
+
+        }
+        if(e.getSource() == one) {
+            if(type.equals("Earth")) {
+                for(int earthCheck = 0; earthCheck < Game.earthInterest.length; earthCheck++) {
+                    if(one.getText().equals(Game.earthInterest[earthCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveEarth();
+                } else {
+                    Game.negativeEarth();
+                }
+            }
+
+            if(type.equals("Wind")) {
+                for(int windCheck = 0; windCheck < Game.windInterest.length; windCheck++) {
+                    if(one.getText().equals(Game.windInterest[windCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWind();
+                } else {
+                    Game.negativeWind();
+                }
+            }
+
+            if(type.equals("Fire")) {
+                for(int fireCheck = 0; fireCheck < Game.fireInterest.length; fireCheck++) {
+                    if(one.getText().equals(Game.fireInterest[fireCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveFire();
+                } else {
+                    Game.negativeFire();
+                }
+            }
+
+            if(type.equals("Water")) {
+                for(int waterCheck = 0; waterCheck < Game.waterInterest.length; waterCheck++) {
+                    if(one.getText().equals(Game.waterInterest[waterCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWater();
+                } else {
+                    Game.negativeWater();
+                }
+            }
+
+        }
+
+        if(e.getSource() == two) {
+            if(type.equals("Earth")) {
+                for(int earthCheck = 0; earthCheck < Game.earthInterest.length; earthCheck++) {
+                    if(two.getText().equals(Game.earthInterest[earthCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveEarth();
+                } else {
+                    Game.negativeEarth();
+                }
+            }
+
+            if(type.equals("Wind")) {
+                for(int windCheck = 0; windCheck < Game.windInterest.length; windCheck++) {
+                    if(two.getText().equals(Game.windInterest[windCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWind();
+                } else {
+                    Game.negativeWind();
+                }
+            }
+
+            if(type.equals("Fire")) {
+                for(int fireCheck = 0; fireCheck < Game.fireInterest.length; fireCheck++) {
+                    if(two.getText().equals(Game.fireInterest[fireCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveFire();
+                } else {
+                    Game.negativeFire();
+                }
+            }
+
+            if(type.equals("Water")) {
+                for(int waterCheck = 0; waterCheck < Game.waterInterest.length; waterCheck++) {
+                    if(two.getText().equals(Game.waterInterest[waterCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWater();
+                } else {
+                    Game.negativeWater();
+                }
+            }
+
+        }
+        if(e.getSource() == three) {
+            if(type.equals("Earth")) {
+                for(int earthCheck = 0; earthCheck < Game.earthInterest.length; earthCheck++) {
+                    if(three.getText().equals(Game.earthInterest[earthCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveEarth();
+                } else {
+                    Game.negativeEarth();
+                }
+            }
+
+            if(type.equals("Wind")) {
+                for(int windCheck = 0; windCheck < Game.windInterest.length; windCheck++) {
+                    if(three.getText().equals(Game.windInterest[windCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWind();
+                } else {
+                    Game.negativeWind();
+                }
+            }
+
+            if(type.equals("Fire")) {
+                for(int fireCheck = 0; fireCheck < Game.fireInterest.length; fireCheck++) {
+                    if(three.getText().equals(Game.fireInterest[fireCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveFire();
+                } else {
+                    Game.negativeFire();
+                }
+            }
+
+            if(type.equals("Water")) {
+                for(int waterCheck = 0; waterCheck < Game.waterInterest.length; waterCheck++) {
+                    if(three.getText().equals(Game.waterInterest[waterCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWater();
+                } else {
+                    Game.negativeWater();
+                }
+            }
+
+        }
+        if(e.getSource() == one) {
+            if(type.equals("Earth")) {
+                for(int earthCheck = 0; earthCheck < Game.earthInterest.length; earthCheck++) {
+                    if(one.getText().equals(Game.earthInterest[earthCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveEarth();
+                } else {
+                    Game.negativeEarth();
+                }
+            }
+
+            if(type.equals("Wind")) {
+                for(int windCheck = 0; windCheck < Game.windInterest.length; windCheck++) {
+                    if(one.getText().equals(Game.windInterest[windCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWind();
+                } else {
+                    Game.negativeWind();
+                }
+            }
+
+            if(type.equals("Fire")) {
+                for(int fireCheck = 0; fireCheck < Game.fireInterest.length; fireCheck++) {
+                    if(one.getText().equals(Game.fireInterest[fireCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveFire();
+                } else {
+                    Game.negativeFire();
+                }
+            }
+
+            if(type.equals("Water")) {
+                for(int waterCheck = 0; waterCheck < Game.waterInterest.length; waterCheck++) {
+                    if(one.getText().equals(Game.waterInterest[waterCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWater();
+                } else {
+                    Game.negativeWater();
+                }
+            }
+
+        }
+        if(e.getSource() == four) {
+            if(type.equals("Earth")) {
+                for(int earthCheck = 0; earthCheck < Game.earthInterest.length; earthCheck++) {
+                    if(four.getText().equals(Game.earthInterest[earthCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveEarth();
+                } else {
+                    Game.negativeEarth();
+                }
+            }
+
+            if(type.equals("Wind")) {
+                for(int windCheck = 0; windCheck < Game.windInterest.length; windCheck++) {
+                    if(four.getText().equals(Game.windInterest[windCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWind();
+                } else {
+                    Game.negativeWind();
+                }
+            }
+
+            if(type.equals("Fire")) {
+                for(int fireCheck = 0; fireCheck < Game.fireInterest.length; fireCheck++) {
+                    if(four.getText().equals(Game.fireInterest[fireCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveFire();
+                } else {
+                    Game.negativeFire();
+                }
+            }
+
+            if(type.equals("Water")) {
+                for(int waterCheck = 0; waterCheck < Game.waterInterest.length; waterCheck++) {
+                    if(four.getText().equals(Game.waterInterest[waterCheck])) {
+                        goodGuess = true;
+                    }
+                }
+
+                if(goodGuess) {
+                    Game.positiveWater();
+                } else {
+                    Game.negativeWater();
+                }
+            }
+
+        }
+
+
     }
 
     private int randomMid() {
-        return (int) (Math.random() *4 + 4);
+        return (int) (Math.random() * 4 + 4);
     }
 
     private int randomLow() {
@@ -236,9 +619,9 @@ public class GUI2 extends JFrame implements ActionListener {
 
     private void newGameCall() {
 
-        System.out.print("New Game");
+        //System.out.print("New Game");
         myPane.remove(coupleHolder);
-        if(gender=='M')
+        if(gender == 'M')
             myPane.add(manHolder, BorderLayout.CENTER);
         else
             myPane.add(womanHolder, BorderLayout.CENTER);
@@ -246,34 +629,48 @@ public class GUI2 extends JFrame implements ActionListener {
         JPanel buttons = new JPanel();
         buttons.setBackground(Color.pink);
 
-        one = new JButton();
-        one.setBackground(Color.pink);
-        try {
+        /*try {
             Image tv = ImageIO.read(getClass().getResource("Resources/Images/tv.png"));
             one.setIcon(new ImageIcon(tv));
         } catch(Exception ex) {
             System.out.println(ex);
-        }
+        }*/
 
 
         //https://stackoverflow.com/questions/15199091/progress-bar-java
         JPanel scoreHolder = new JPanel();
+        scoreHolder.setLayout(new FlowLayout());
+        String type = Personality.getPersonalityType(Game.computerPersonality);
+        String name = Name.getName(Game.computerName);
+        Game.computerName.setGender(genderSelect());
+        JLabel typeDisplay = new JLabel(type);
+        JLabel nameDisplay = new JLabel(name);
+        scoreHolder.add(typeDisplay);
         scoreHolder.setBackground(Color.pink);
-        score = new JProgressBar(0,100);
+        score = new JProgressBar(0, 100);
         score.setValue(50);
         score.setBackground(Color.pink);
         score.setForeground(Color.blue);
         JToolBar scoreToolbar = new JToolBar();
         scoreToolbar.add(scoreHolder);
+        //scoreHolder.add(nameDisplay);
         scoreToolbar.setPreferredSize(new Dimension(width, 40));
         scoreHolder.add(score);
 
         myPane.add(scoreToolbar, BorderLayout.NORTH);
 
-
-        JButton two = new JButton("Two");
-        JButton three = new JButton("Three");
-        JButton four = new JButton("Four");
+        one = new JButton(buttonPicker());
+        one.setBackground(Color.pink);
+        one.setForeground(Color.blue);
+        two = new JButton(buttonPicker());
+        two.setBackground(Color.pink);
+        two.setForeground(Color.blue);
+        three = new JButton(buttonPicker());
+        three.setBackground(Color.pink);
+        three.setForeground(Color.blue);
+        four = new JButton(buttonPicker());
+        four.setBackground(Color.pink);
+        four.setForeground(Color.blue);
 
         JPanel blankOne = new JPanel();
         blankOne.setBackground(Color.pink);
@@ -281,13 +678,13 @@ public class GUI2 extends JFrame implements ActionListener {
         blankTwo.setBackground(Color.pink);
         JPanel blankThree = new JPanel();
         blankThree.setBackground(Color.pink);
-        one.setPreferredSize(new Dimension(((width / 7)), 50));
-        blankOne.setPreferredSize(new Dimension(((width / 8) - 5), 50));
-        blankTwo.setPreferredSize(new Dimension(((width / 8) - 5), 50));
-        blankThree.setPreferredSize(new Dimension(((width / 8) - 5), 50));
-        two.setPreferredSize(new Dimension(((width / 7)), 30));
-        three.setPreferredSize(new Dimension(((width / 7)), 30));
-        four.setPreferredSize(new Dimension(((width / 7)), 30));
+        one.setPreferredSize(new Dimension(((width / 5)), 30));
+        blankOne.setPreferredSize(new Dimension(20, 50));
+        blankTwo.setPreferredSize(new Dimension(20, 50));
+        blankThree.setPreferredSize(new Dimension(20, 50));
+        two.setPreferredSize(new Dimension(((width / 5)), 30));
+        three.setPreferredSize(new Dimension(((width / 5)), 30));
+        four.setPreferredSize(new Dimension(((width / 5)), 30));
         buttons.setLayout(new FlowLayout());
 
         buttons.add(one);
@@ -303,6 +700,7 @@ public class GUI2 extends JFrame implements ActionListener {
     }
 
     private void newNameCall() {
+
     }
 
     private void displayCall() {
@@ -396,7 +794,7 @@ public class GUI2 extends JFrame implements ActionListener {
         questionTime.setLocation(200, 200);
         questionTime.setLayout(new BorderLayout());
         questionTime.setBackground(Color.pink);
-        questionHolder= new JTextArea();
+        questionHolder = new JTextArea();
         notLikely = new JButton("Not Likely");
         somewhatLikely = new JButton("Somewhat Likely");
         likely = new JButton("Likely");
@@ -413,9 +811,9 @@ public class GUI2 extends JFrame implements ActionListener {
         questionButtons.add(somewhatLikely);
         questionButtons.add(likely);
         questionButtons.setBackground(Color.pink);
-        notLikely.setSize(100,30);
-        somewhatLikely.setSize(100,30);
-        likely.setSize(100,30);
+        notLikely.setSize(100, 30);
+        somewhatLikely.setSize(100, 30);
+        likely.setSize(100, 30);
         likely.setBackground(Color.pink);
         notLikely.setBackground(Color.pink);
         somewhatLikely.setBackground(Color.pink);
@@ -438,12 +836,12 @@ public class GUI2 extends JFrame implements ActionListener {
 
         if(i == 1) //Empathy Text
             text = "You walk across the road with a friend, going for a drink,  when you" +
-                   " see an old lady behind you trying to cross also.   The lights are turning red again so you will" +
-                   " have to wait   with her for another three minutes if you go back. How      " +
-                   "likely are you to help her?";
+                    " see an old lady behind you trying to cross also.   The lights are turning red again so you will" +
+                    " have to wait   with her for another three minutes if you go back. How      " +
+                    "likely are you to help her?";
 
         else if(i == 2) //Honesty text
-            text =  "You are walking down the street when you find a wallet brimming with 50 euro notes. " +
+            text = "You are walking down the street when you find a wallet brimming with 50 euro notes. " +
                     "There is no one around and you know you could get away with putting it in your pocket. " +
                     "How likely are you to turn it in to the police station, or try to find the owner on Facebook?";
 
@@ -481,10 +879,10 @@ public class GUI2 extends JFrame implements ActionListener {
             text = "";
 
 
-    return text;
+        return text;
     }
 
-    private static char genderSelect() {
+    public static char genderSelect() {
         char gender;
         String genderString = JOptionPane.showInputDialog("Please enter what gender you would like to date? 'M'ale or 'F'emale");
         boolean valid = false;
@@ -493,8 +891,7 @@ public class GUI2 extends JFrame implements ActionListener {
         while(!valid) {
             if(gender == 'M' || gender == 'F') {
                 valid = true;
-            }
-            else {
+            } else {
                 genderString = JOptionPane.showInputDialog("Please enter what gender you would like to date? 'M'ale or 'F'emale");
                 gender = genderString.toUpperCase().charAt(0);
             }
@@ -504,11 +901,21 @@ public class GUI2 extends JFrame implements ActionListener {
 
     private static String buttonPicker() {
 
-        String type = Game.getInterest(Personality computer)
+        String buttonText[] = new String[50];
 
-        for(int buttonPicker = 0; buttonPicker < 10; buttonPicker++){
-
-
+        for(int buttonPicker = 0; buttonPicker < buttonText.length; buttonPicker++) {
+            if(buttonPicker < 10)
+                buttonText[buttonPicker] = Game.earthInterest[buttonPicker];
+            else if(buttonPicker >= 10 && buttonPicker < 20)
+                buttonText[buttonPicker] = Game.waterInterest[(buttonPicker - 10)];
+            else if(buttonPicker >= 20 && buttonPicker < 30)
+                buttonText[buttonPicker] = Game.fireInterest[(buttonPicker - 20)];
+            else if(buttonPicker >= 30 && buttonPicker < 40)
+                buttonText[buttonPicker] = Game.windInterest[(buttonPicker - 30)];
+            else
+                buttonText[buttonPicker] = Game.averageInterest[(buttonPicker - 40)];
         }
+
+        return buttonText[(int) (Math.random() * 50) + 1];
     }
 }
