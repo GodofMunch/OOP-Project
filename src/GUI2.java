@@ -28,20 +28,15 @@ public class GUI2 extends JFrame implements ActionListener {
     private static JButton likely;
     private final int width = 800;
     private static int i =1;
-    private ButtonHandler continueHandler;
     public Personality playerPersonality = new Personality();
-    ButtonHandler notLikelyHandler;
-    ButtonHandler somewhatLikelyHandler;
-    ButtonHandler likelyHandler;
-
-
+    private char gender;
+    public Person player = new Person(gender);
 
     public static void main(String args[]) {
         GUI2 myGUI = new GUI2();
         myGUI.setVisible(true);
     }
 
-    //C:\Users\HP\Documents\GitHub\OOP-Project\
     public GUI2() {
         this.setTitle("Dating Simulator 2017");
         this.setVisible(true);
@@ -96,9 +91,6 @@ public class GUI2 extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-        int randomMid=0;
-        int randomLow=0;
-        int randomHigh=0;
         if(e.getSource() == newName) {
             newNameCall();
         }
@@ -208,18 +200,31 @@ public class GUI2 extends JFrame implements ActionListener {
         playerPersonality.setIntelligence(randomLow());
         //questionTime.setVisible(false);
 
-        if(i==10) {
-            newGameCall();
+        if(i==10)
+        {
             questionTime.setVisible(false);
-            System.out.print(playerPersonality.toString());
+            gender = genderSelect();
+            i++;
+        }
+
+        if(i==11) {
+            newGameCall();
         }//Intelligence low is high
         i++;
         //The code in here i imagine would work if i could differentiate between which button is being called;
-        //What i ahd hoped is that each time an event
     }
-    private int randomMid() { return (int) (Math.random() *4 + 4); }
-    private int randomLow() { return (int) (Math.random() * 3 + 1); }
-    private int randomHigh() { return (int) (Math.random() * 3 + 7); }
+
+    private int randomMid() {
+        return (int) (Math.random() *4 + 4);
+    }
+
+    private int randomLow() {
+        return (int) (Math.random() * 3 + 1);
+    }
+
+    private int randomHigh() {
+        return (int) (Math.random() * 3 + 7);
+    }
 
     private void newGameCall() {
 
@@ -357,14 +362,6 @@ public class GUI2 extends JFrame implements ActionListener {
         playerQuestionsFrame.setVisible(true);
     }
 
-    private class ButtonHandler implements ActionListener{
-
-        public void actionPerformed(ActionEvent e)
-        {
-
-        }
-    }
-
     private void playerQuestions() {
 
         questionTime.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -459,4 +456,24 @@ public class GUI2 extends JFrame implements ActionListener {
 
     return text;
     }
+
+    private static char genderSelect() {
+        char gender;
+        String genderString = JOptionPane.showInputDialog("Please enter what gender you would like to date? 'M'ale or 'F'emale");
+        boolean valid = false;
+        gender = genderString.toUpperCase().charAt(0);
+
+        while(!valid) {
+            if(gender == 'M' || gender == 'F') {
+                valid = true;
+            }
+            else {
+                genderString = JOptionPane.showInputDialog("Please enter what gender you would like to date? 'M'ale or 'F'emale");
+                gender = genderString.toUpperCase().charAt(0);
+            }
+        }
+        return gender;
+    }
+
+
 }
