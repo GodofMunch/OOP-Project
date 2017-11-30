@@ -5,6 +5,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileOutputStream;
 
 public class GUI2 extends JFrame implements ActionListener {
 
@@ -119,14 +120,19 @@ public class GUI2 extends JFrame implements ActionListener {
             createPlayer();
         }
 
+        if(e.getSource() == save) {
+            saveGame();
+        }
+
         //if(e.getSource() == likely || e.getSource() == somewhatLikely || e.getSource() == notLikely || e.getSource() == welcomeContinue)
         if(e.getSource() == welcomeContinue) {
             //System.out.print("ASKING QUESTIONS");
             playerQuestionsFrame.setVisible(false);
-            i=0;
+            i=1;
+            playerQuestions();
         }
 
-        if(i >= 1 )
+        if(i > 1 && i <= 10)
             playerQuestions();
         if(e.getSource() == notLikely || e.getSource() == somewhatLikely || e.getSource() == likely) {
 
@@ -209,16 +215,17 @@ public class GUI2 extends JFrame implements ActionListener {
                 }
             }
         }
-        i++;
+        if(i<=11)
+            i++;
         //
 
-        if(i>9){
+        if(i==11){
             questionTime.setVisible(false);
             Game.startGame();
             newGameCall();
         }
         //
-        System.out.print(playerPersonality.toString());
+       // System.out.print(playerPersonality.toString());
         if(e.getSource() == one) {
             String type = Personality.getPersonalityType(Game.computerPersonality);
 
@@ -519,6 +526,10 @@ public class GUI2 extends JFrame implements ActionListener {
     private void exitCall() {
         System.out.print("EXIT");
         System.exit(0);
+    }
+
+    private void saveGame() {
+        FileOutputStream os = new FileOutputStream();
     }
 
     private void createPlayer() {
