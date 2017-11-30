@@ -5,8 +5,7 @@ public class Game {
 
     static int multiplier;
     public static Personality computerPersonality = getComputerPersonality();
-    private static char gender = GUI2.genderSelect();
-    public static Person computerName;
+    public static Person computerName = new Person(GUI2.player.getGender());
 
 
     public static void main(String args[]) {
@@ -30,7 +29,7 @@ public class Game {
     public static String[] averageInterest = {"Television", "Religion", "Phones", "Shopping",
             "Computers", "Travel", "Social Media", "Restaurants", "Aliens", "Complain"};
 
-    public static String getInterest(Personality p) {
+   /* public static String getInterest(Personality p) {
 
         String interest;
         int random = (int) (Math.random() * 10) + 1;
@@ -47,7 +46,7 @@ public class Game {
             interest = averageInterest[random];
 
         return interest;
-    }
+    }*/
 
 
     public static Personality getComputerPersonality() {
@@ -116,14 +115,28 @@ public class Game {
     public static void startGame()
     {
 
-        Person computerName = new Person(GUI2.player.getGender());
         String computerType = Personality.getPersonalityType(getComputerPersonality());
 
         Personality playerPersonality = GUI2.playerPersonality;
+
+        //Couldnt get GUI2 to save values without causing trouble for display, so calling a random personality for the player
+
+        playerPersonality.setEmpathy(randomNumber());
+        playerPersonality.setHonesty(randomNumber());
+        playerPersonality.setCourage(randomNumber());
+        playerPersonality.setHumour(randomNumber());
+        playerPersonality.setCreativity(randomNumber());
+        playerPersonality.setSelfAwareness(randomNumber());
+        playerPersonality.setIntegrity(randomNumber());
+        playerPersonality.setCuriosity(randomNumber());
+        playerPersonality.setIntelligence(randomNumber());
+
+
         String playerType = Personality.getPersonalityType(GUI2.playerPersonality);
         multiplier = decideMultiplier(playerType, computerType);
 
     }
+
     public static void  positiveEarth() {
         //maths for score
 
