@@ -53,6 +53,11 @@ public class GUI2 extends JFrame implements ActionListener {
         myGUI.setVisible(true);
     }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Contains the code that displays the initial GUI
+     */
     public GUI2() {
         this.setTitle("Dating Simulator 2017");
         this.setVisible(true);
@@ -104,6 +109,13 @@ public class GUI2 extends JFrame implements ActionListener {
         namesMenu.add(display);
     }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Contains the code that deals with events
+     *
+     * @param e of type ActionEvent
+     */
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource() == newName) {
@@ -306,6 +318,15 @@ public class GUI2 extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * @author Dave O'Sullivan - T00139303
+     *
+     * Takes in a JButton to see if the text in it corrolates with the dates Interest's
+     * if found to be positive or negative then call the appropriate method
+     *
+     * @param button
+     */
+
     private void fireCheck(JButton button) {
         boolean goodGuess = false;
 
@@ -322,6 +343,14 @@ public class GUI2 extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * @author Dave O'Sullivan - T00139303
+     *
+     * Takes in a JButton to see if the text in it corrolates with the dates Interest's
+     * if found to be positive or negative then call the appropriate method
+     *
+     * @param button
+     */
     private void waterCheck(JButton button) {
         boolean goodGuess = false;
         for(int waterCheck = 0; waterCheck < Game.waterInterest.length; waterCheck++) {
@@ -337,6 +366,14 @@ public class GUI2 extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * @author Dave O'Sullivan - T00139303
+     *
+     * Takes in a JButton to see if the text in it corrolates with the dates Interest's
+     * if found to be positive or negative then call the appropriate method
+     *
+     * @param button
+     */
     private void windCheck(JButton button) {
         boolean goodGuess = false;
 
@@ -354,6 +391,14 @@ public class GUI2 extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * @author Dave O'Sullivan - T00139303
+     *
+     * Takes in a JButton to see if the text in it corrolates with the dates Interest's
+     * if found to be positive or negative then call the appropriate method
+     *
+     * @param button
+     */
     private void earthCheck(JButton button) {
         boolean goodGuess = false;
 
@@ -372,6 +417,14 @@ public class GUI2 extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * @author Dave O'Sullivan - T00139303
+     *
+     * Takes in a JButton to see if the text in it corrolates with the dates Interest's
+     * if found to be positive or negative then call the appropriate method
+     *
+     * @param button
+     */
     private void averageCheck(JButton button) {
         boolean goodGuess = false;
 
@@ -389,17 +442,44 @@ public class GUI2 extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Chooses a random number between 4 and 7
+     * @return int
+     */
     private int randomMid() {
         return (int) ((Math.random() * 3) + 4);
     }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Chooses a random number between 1 and 3
+     * @return int
+     */
     private int randomLow() {
         return (int) ((Math.random() * 2) + 1);
     }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Chooses a random number between 8 and 10
+     * @return int
+     */
+
     private int randomHigh() {
         return (int) ((Math.random() * 3) + 7);
     }
+
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Contains The GUI code for the new game
+     *
+     * This is called from the JMenuItem newGame in the actionPerformed method
+     */
 
     private void newGameCall() {
 
@@ -493,6 +573,11 @@ public class GUI2 extends JFrame implements ActionListener {
 
     private void newNameCall() { }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Contains the code that displays the names stored in the system
+     */
     private void displayCall() {
 
         Color jtaBackGround = new Color(255, 182, 193);
@@ -538,11 +623,23 @@ public class GUI2 extends JFrame implements ActionListener {
         JOptionPane.showMessageDialog(null, names);
     }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Contains the code that exits the Game
+     */
     private void exitCall() {
         System.out.print("EXIT");
         System.exit(0);
     }
 
+    /**
+     * @author David O'Sullivan T00139303
+     *
+     * Contains the code that attempts to save the game
+     *
+     * @throws Exception
+     */
     private void saveGame() throws Exception {
 
         try {
@@ -561,6 +658,13 @@ public class GUI2 extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * @author David O'Sullivan
+     *
+     * Contains the code that attempts to load the game
+     *
+     * @throws Exception
+     */
     public void loadGame() throws Exception {
 
         String personality;
@@ -583,6 +687,11 @@ public class GUI2 extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * @author David O'Sullivan - T00139303
+     *
+     * Contains the code that creates the player and displays the welcome text for thwe new Game
+     */
     private void createPlayer() {
 
         playerQuestionsFrame = new JFrame("Welcome!");
@@ -616,6 +725,12 @@ public class GUI2 extends JFrame implements ActionListener {
         welcomeContinue.addActionListener(this);
         playerQuestionsFrame.setVisible(true);
     }
+
+    /**
+     * @author David O'Sullivan - t00139303
+     *
+     * Contains the code that Displays the questions that decide the type of player is playiing
+     */
 
     private void playerQuestions() {
 
@@ -664,6 +779,14 @@ public class GUI2 extends JFrame implements ActionListener {
 
 
     }
+
+    /**
+     * @author David O'Sullivan
+     *
+     * Contains the code returns the text depending on what question is being asked
+     *
+     * @return text of type String
+     */
 
     private static String questionText() {
         String text;
@@ -716,6 +839,12 @@ public class GUI2 extends JFrame implements ActionListener {
         return text;
     }
 
+    /**
+     * @author David O'Sullivan - T00139303
+     *
+     * Contains the code that ask the user what gender they would like to date in order to select a random name
+     */
+
     public void genderSelect() {
         String genderString = JOptionPane.showInputDialog("Please enter what gender you would like to date? 'M'ale or 'F'emale");
         boolean valid = false;
@@ -732,6 +861,13 @@ public class GUI2 extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * @author David O'Sullivan - T00139303
+     *
+     * Contains the code that sets the text to the four buttons that determine the topic of conversation
+     *
+     * @return buttonText[randomNumber] of type String
+     */
     private static String buttonPicker() {
 
         String buttonText[] = new String[50];
