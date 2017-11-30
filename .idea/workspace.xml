@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f431eb1-46d0-4bb0-8b1e-959161f3dbd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI2.java" afterPath="$PROJECT_DIR$/src/GUI2.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -95,7 +94,7 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="209">
               <caret line="96" column="31" lean-forward="false" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
               <folding>
                 <element signature="method#main#0;class#GUI#0" expanded="false" />
@@ -115,13 +114,17 @@
       <file leaf-file-name="GUI2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GUI2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="531" column="53" lean-forward="false" selection-start-line="531" selection-start-column="53" selection-end-line="531" selection-end-column="53" />
+            <state relative-caret-position="294">
+              <caret line="136" column="16" lean-forward="false" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="37" />
               <folding>
+                <element signature="method#fireCheck#0;class#GUI2#0" expanded="false" />
+                <element signature="method#waterCheck#0;class#GUI2#0" expanded="false" />
+                <element signature="method#windCheck#0;class#GUI2#0" expanded="false" />
+                <element signature="method#earthCheck#0;class#GUI2#0" expanded="false" />
+                <element signature="method#averageCheck#0;class#GUI2#0" expanded="false" />
+                <element signature="method#newGameCall#0;class#GUI2#0" expanded="false" />
                 <element signature="method#displayCall#0;class#GUI2#0" expanded="false" />
                 <element signature="method#exitCall#0;class#GUI2#0" expanded="false" />
-                <element signature="e#17987#17988#0" expanded="true" />
-                <element signature="e#18047#18048#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,7 +133,7 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2363">
+            <state relative-caret-position="2329">
               <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -206,10 +209,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
+    <option name="y" value="2" />
     <option name="width" value="745" />
-    <option name="height" value="775" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -751,7 +755,7 @@
     <option name="totallyTimeSpent" value="56301000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1466,24 +1470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="96" column="31" lean-forward="false" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
-          <folding>
-            <element signature="method#main#0;class#GUI#0" expanded="false" />
-            <element signature="method#GUI#0;class#GUI#0" expanded="false" />
-            <element signature="method#createFileMenu#0;class#GUI#0" expanded="false" />
-            <element signature="method#createNamesMenu#0;class#GUI#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#GUI#0" expanded="false" />
-            <element signature="method#newGameCall#0;class#GUI#0" expanded="false" />
-            <element signature="method#newNameCall#0;class#GUI#0" expanded="false" />
-            <element signature="method#displayCall#0;class#GUI#0" expanded="false" />
-            <element signature="method#exitCall#0;class#GUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PersonDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -1493,16 +1479,6 @@
             <element signature="method#main#0;class#PersonDriver#0" expanded="false" />
             <element signature="method#myPersonsPersonality#0;class#PersonDriver#0" expanded="false" />
             <marker date="1512025048741" expanded="true" signature="3615:3885" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1519,15 +1495,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2329">
+          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="96" column="31" lean-forward="false" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
+          <folding>
+            <element signature="method#main#0;class#GUI#0" expanded="false" />
+            <element signature="method#GUI#0;class#GUI#0" expanded="false" />
+            <element signature="method#createFileMenu#0;class#GUI#0" expanded="false" />
+            <element signature="method#createNamesMenu#0;class#GUI#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#GUI#0" expanded="false" />
+            <element signature="method#newGameCall#0;class#GUI#0" expanded="false" />
+            <element signature="method#newNameCall#0;class#GUI#0" expanded="false" />
+            <element signature="method#displayCall#0;class#GUI#0" expanded="false" />
+            <element signature="method#exitCall#0;class#GUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="531" column="53" lean-forward="false" selection-start-line="531" selection-start-column="53" selection-end-line="531" selection-end-column="53" />
+        <state relative-caret-position="294">
+          <caret line="136" column="16" lean-forward="false" selection-start-line="136" selection-start-column="16" selection-end-line="136" selection-end-column="37" />
           <folding>
+            <element signature="method#fireCheck#0;class#GUI2#0" expanded="false" />
+            <element signature="method#waterCheck#0;class#GUI2#0" expanded="false" />
+            <element signature="method#windCheck#0;class#GUI2#0" expanded="false" />
+            <element signature="method#earthCheck#0;class#GUI2#0" expanded="false" />
+            <element signature="method#averageCheck#0;class#GUI2#0" expanded="false" />
+            <element signature="method#newGameCall#0;class#GUI2#0" expanded="false" />
             <element signature="method#displayCall#0;class#GUI2#0" expanded="false" />
             <element signature="method#exitCall#0;class#GUI2#0" expanded="false" />
-            <element signature="e#17987#17988#0" expanded="true" />
-            <element signature="e#18047#18048#0" expanded="true" />
           </folding>
         </state>
       </provider>

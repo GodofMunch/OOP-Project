@@ -5,7 +5,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.FileOutputStream;
+import java.io.*;
 
 public class GUI2 extends JFrame implements ActionListener {
 
@@ -45,6 +45,8 @@ public class GUI2 extends JFrame implements ActionListener {
     private JButton four = new JButton();
     public static String name = "";
     private boolean startBoolean = false;
+    String[] dateNames = new String[10];
+    private int j=0;
 
     public static void main(String args[]) {
         GUI2 myGUI = new GUI2();
@@ -121,8 +123,19 @@ public class GUI2 extends JFrame implements ActionListener {
         }
 
         if(e.getSource() == save) {
-            saveGame();
+            try {
+                saveGame();
+            } catch(Exception e1) {
+                e1.printStackTrace();
+            }
         }
+
+        if(e.getSource() == open)
+            try {
+                loadGame();
+            } catch(Exception e1) {
+                e1.printStackTrace();
+            }
 
         //if(e.getSource() == likely || e.getSource() == somewhatLikely || e.getSource() == notLikely || e.getSource() == welcomeContinue)
         if(e.getSource() == welcomeContinue) {
@@ -212,6 +225,7 @@ public class GUI2 extends JFrame implements ActionListener {
                     questionTime.setVisible(false);
                     Game.startGame();
                     newGameCall();
+                    j++;
                 }
             }
         }
@@ -416,6 +430,7 @@ public class GUI2 extends JFrame implements ActionListener {
         scoreToolbar.add(scoreHolder);
         genderSelect();
         JLabel nameDisplay = new JLabel("   " + name);
+        dateNames[j] = name;
         nameDisplay.setFont(new Font("Ariel", Font.BOLD, 16));
         scoreHolder.add(nameDisplay, BorderLayout.EAST);
         nameDisplay.setForeground(Color.blue);
@@ -528,8 +543,44 @@ public class GUI2 extends JFrame implements ActionListener {
         System.exit(0);
     }
 
-    private void saveGame() {
-        FileOutputStream os = new FileOutputStream();
+    private void saveGame() throws Exception {
+
+        try {
+            if(j > 0) {
+                File saveFile = new File("sgm.data");
+                FileOutputStream fileOut = new FileOutputStream(saveFile);
+                ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+
+                objectOut.writeObject(playerPersonality);
+                objectOut.close();
+            } else
+                JOptionPane.showMessageDialog(null, "You have yet to have a date which to save!");
+        }catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Apologies, There was an error saving the game");
+        }
+    }
+
+    public void loadGame() throws Exception {
+
+        String personality;
+
+        try {
+            if(j > 0) {
+                File loadFile = new File("sgm.data");
+                FileInputStream fileIn = new FileInputStream(loadFile);
+                ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+
+                Personality loadedPesron = (Personality) objectIn.readObject();
+                personality = loadedPesron.toString();
+                JOptionPane.showMessageDialog(null, personality);
+
+                objectIn.close();
+            }
+        } catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Apologies, could not load data at this time");
+        }
     }
 
     private void createPlayer() {
